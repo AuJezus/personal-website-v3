@@ -5,30 +5,27 @@ import ConctactList from "./contact-list";
 function Hero() {
   const [isGlitching, setIsGlitching] = useState(false);
 
-  function addGlitchEffect() {
+  const addGlitchEffect = useCallback(() => {
     setIsGlitching(true);
     const randomDelay = Math.random() * 200 + 50;
     setTimeout(() => {
       setIsGlitching(false);
-      scheduleNextGlitch();
     }, randomDelay);
-  }
-
-  const scheduleNextGlitch = useCallback(() => {
-    const randomDelay = Math.random() * 1500 + 500;
-    return setTimeout(() => {
-      addGlitchEffect();
-    }, randomDelay);
-  }, []);
+  }, [setIsGlitching]);
 
   useEffect(() => {
-    const timeout = scheduleNextGlitch(); // Initial glitch scheduling
+    if (isGlitching) return;
+
+    const randomDelay = Math.random() * 1500 + 700;
+    const timeout = setTimeout(() => {
+      addGlitchEffect();
+    }, randomDelay);
 
     // Cleanup the timers when the component unmounts
     return () => {
       clearTimeout(timeout);
     };
-  }, [scheduleNextGlitch]);
+  }, [isGlitching, addGlitchEffect]);
 
   return (
     <div className="relative -z-40 h-screen w-screen bg-neutral-900">
@@ -39,11 +36,11 @@ function Hero() {
       ></div>
       <div className="line-effect absolute -z-20 h-full w-full opacity-20"></div>
       <div className="absolute -z-10 h-screen w-screen bg-black/40"></div>
-
       {/* Content */}
       <div className="relative z-0 flex h-full w-full flex-col items-center justify-center text-neutral-100 opacity-90">
         <h1 className="text-9xl font-bold uppercase ">AuJezus</h1>
         <p className="flex gap-2 text-lg uppercase">
+          \
           <span>
             <span className="text-violet-400">{">"}</span> Augustas Vaivada
           </span>
