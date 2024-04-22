@@ -1,4 +1,3 @@
-import { IconContext } from "react-icons";
 import {
   BiLogoTwitter,
   BiLogoLinkedin,

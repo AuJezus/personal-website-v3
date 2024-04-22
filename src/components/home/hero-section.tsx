@@ -1,11 +1,10 @@
 "use client";
 
-import NoiseSvg from "@/components/noise-svg";
+import NoiseSvg from "@/components/home/noise-svg";
 import { useCallback, useEffect, useState } from "react";
-import ConctactList from "./contact-list";
-import { Button } from "./ui/button";
+import ConctactList from "../contact-list";
 
-function Hero() {
+function HeroSection() {
   const [isGlitching, setIsGlitching] = useState(false);
 
   const addGlitchEffect = useCallback(() => {
@@ -61,4 +60,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default HeroSection;
