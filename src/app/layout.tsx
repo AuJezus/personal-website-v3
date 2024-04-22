@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-background min-h-screen font-mono antialiased",
+          "bg-background dark min-h-screen font-mono antialiased",
           robotoMono.variable,
         )}
       >
