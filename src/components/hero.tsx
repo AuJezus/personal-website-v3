@@ -3,6 +3,7 @@
 import NoiseSvg from "@/components/noise-svg";
 import { useCallback, useEffect, useState } from "react";
 import ConctactList from "./contact-list";
+import { Button } from "./ui/button";
 
 function Hero() {
   const [isGlitching, setIsGlitching] = useState(false);
@@ -37,7 +38,7 @@ function Hero() {
         className={`hero-img absolute -z-30 h-full w-full ${isGlitching ? "noise" : ""}`}
       ></div>
       <div className="line-effect absolute -z-20 h-full w-full opacity-20"></div>
-      <div className="absolute right-0 top-0 -z-10 h-full w-full bg-black/40"></div>
+      <div className="bg-background/40 absolute right-0 top-0 -z-10 h-full w-full"></div>
 
       {/* Content */}
       <div className="relative flex h-screen flex-col items-center justify-center gap-4">
@@ -49,7 +50,12 @@ function Hero() {
           <span>full-stack developer</span>
         </p>
 
-        <ConctactList className="absolute bottom-0 z-10 mb-8 md:mb-8 lg:mb-12" />
+        <div className="absolute bottom-12 z-10 flex flex-col items-center gap-4">
+          <ConctactList />
+          <a href="" className="text-sm font-medium hover:underline">
+            Download Resume
+          </a>
+        </div>
       </div>
     </div>
   );
