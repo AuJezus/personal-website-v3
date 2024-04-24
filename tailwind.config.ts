@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 const config = {
   darkMode: ["class"],
@@ -87,7 +88,52 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(
+      function ({ addVariant, theme, addUtilities }) {
+        // Add variant
+        addVariant("glow", ".glow-capture .glow-overlay &");
+
+        // Add color utils for setting glow color
+        const colors = theme("colors");
+        if (!colors) return;
+
+        const glowUtilities: Record<string, { "--glow-color": string }> = {};
+        Object.entries(colors).forEach(([color, value]) => {
+          // Single color
+          if (typeof value === "string")
+            glowUtilities[`.glow-${color}`] = {
+              "--glow-color": value,
+            };
+          // Colors with shades
+          else
+            for (const [shade, colorValue] of Object.entries(
+              value as Record<string, string>,
+            ))
+              if (shade === "DEFAULT")
+                glowUtilities[`.glow-${color}`] = {
+                  "--glow-color": colorValue,
+                };
+              else
+                glowUtilities[`.glow-${color}-${shade}`] = {
+                  "--glow-color": colorValue,
+                };
+        });
+
+        addUtilities(glowUtilities);
+      },
+      {
+        theme: {
+          extend: {
+            colors: {
+              glow: "color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)",
+            },
+          },
+        },
+      },
+    ),
+  ],
 } satisfies Config;
 
 export default config;

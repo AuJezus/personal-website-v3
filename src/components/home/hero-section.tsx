@@ -49,9 +49,9 @@ function HeroSection() {
           <span>full-stack developer</span>
         </p>
 
-        <div className="absolute bottom-12 z-10 flex flex-col items-center gap-4">
+        <div className="absolute bottom-8 z-10 flex flex-col items-center gap-8">
           <ConctactList />
-          <a href="" className="text-sm font-medium hover:underline">
+          <a href="" className="font text-sm hover:underline">
             Download Resume
           </a>
         </div>

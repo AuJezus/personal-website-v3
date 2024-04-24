@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/hero-section";
 import ProjectSection from "../components/home/project-section";
+import AboutSection from "@/components/home/about-section";
 
 export default function HomePage() {
   return (
@@ -7,6 +8,8 @@ export default function HomePage() {
       <HeroSection />
 
       <ProjectSection />
+
+      <AboutSection />
     </main>
   );
 }
