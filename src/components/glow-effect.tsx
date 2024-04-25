@@ -39,7 +39,10 @@ function GlowEffect({
       onMouseLeave={handleMouseLeave}
     >
       {children}
-      <div ref={overlayRef} className="glow-overlay glow">
+      <div
+        ref={overlayRef}
+        className="glow-overlay glow transition-opacity duration-500"
+      >
         {children}
       </div>
     </div>
