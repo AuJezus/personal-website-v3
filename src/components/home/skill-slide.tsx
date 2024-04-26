@@ -1,0 +1,108 @@
+"use client";
+
+import { useRef, useState } from "react";
+import type { TouchEvent } from "react";
+import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { SkillCard, type Skill } from "./skill-section";
+
+function SkillSlide({ skills }: { skills: Skill[] }) {
+  const [current, setCurrent] = useState(2);
+  const [skillsArr] = useState(() => {
+    return [
+      skills.at(-2),
+      skills.at(-1),
+      ...skills,
+      skills.at(0),
+      skills.at(1),
+    ];
+  });
+  const [isChanging, setIsChanging] = useState(false);
+
+  const touchStart = useRef<number>(0);
+
+  function moveRight() {
+    setIsChanging(false);
+    setCurrent((c) => c + 1);
+  }
+
+  function moveLeft() {
+    setIsChanging(false);
+    setCurrent((c) => c - 1);
+  }
+
+  function checkIfInBounds() {
+    // If at first clone
+    if (current >= skillsArr.length - 2) {
+      setIsChanging(true);
+      setCurrent(2);
+    }
+
+    // If at last clone
+    if (current < 2) {
+      setIsChanging(true);
+      setCurrent(skillsArr.length - 3);
+    }
+  }
+
+  function getSwipeDirection(e: TouchEvent<HTMLDivElement>) {
+    if (!e.changedTouches[0]) return;
+
+    const touchEnd = e.changedTouches[0].screenX;
+    const touchDistance = touchEnd - touchStart.current;
+
+    if (Math.abs(touchDistance) < 20) return;
+
+    if (touchDistance > 0) moveLeft();
+
+    if (touchDistance < 0) moveRight();
+  }
+
+  return (
+    <div className="relative">
+      {/* <div
+        className={`absolute right-1/2 top-1/2 -z-10 flex w-[1250px] -translate-y-1/2 translate-x-1/2   cursor-pointer justify-between text-4xl`}
+      > */}
+      <BiLeftArrowAlt
+        onClick={moveLeft}
+        className="absolute -left-7 top-1/2 z-10 -translate-y-1/2 cursor-pointer text-4xl"
+      />
+      <BiRightArrowAlt
+        onClick={moveRight}
+        className="absolute -right-7 top-1/2 z-10 -translate-y-1/2 cursor-pointer text-4xl"
+      />
+      {/* </div> */}
+      <div className="flex justify-center overflow-x-clip">
+        <div
+          className={`${isChanging ? "" : "transition-transform duration-300"} flex w-3/4 sm:w-4/6 md:w-1/2 xl:w-1/3`}
+          onTransitionEnd={checkIfInBounds}
+          onTouchStart={(e) =>
+            (touchStart.current = e.changedTouches[0]?.screenX ?? 0)
+          }
+          onTouchEnd={getSwipeDirection}
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+          }}
+        >
+          {skillsArr.map((skill, i) => (
+            <div
+              className="flex-shrink-0 flex-grow-0 basis-full"
+              key={skill?.name ?? "undefined" + i}
+            >
+              <SkillCard
+                isCurrent={
+                  i === current ||
+                  (current >= skillsArr.length - 2 && i === 2) ||
+                  (current < 2 && i === skillsArr.length - 3)
+                }
+                skill={skill}
+                onClick={current > i ? moveLeft : moveRight}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SkillSlide;
