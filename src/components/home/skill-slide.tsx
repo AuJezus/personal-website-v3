@@ -5,8 +5,9 @@ import type { TouchEvent } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { SkillCard, type Skill } from "./skill-section";
 
-function SkillSlide({ skills }: { skills: Skill[] }) {
-  const [current, setCurrent] = useState(2);
+function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
+  const [current, setCurrent] = useState(start + 2);
+
   const [skillsArr] = useState(() => {
     return [
       skills.at(-2),
@@ -14,10 +15,10 @@ function SkillSlide({ skills }: { skills: Skill[] }) {
       ...skills,
       skills.at(0),
       skills.at(1),
-    ];
+    ] as Skill[];
   });
-  const [isChanging, setIsChanging] = useState(false);
 
+  const [isChanging, setIsChanging] = useState(false);
   const touchStart = useRef<number>(0);
 
   function moveRight() {
@@ -31,13 +32,13 @@ function SkillSlide({ skills }: { skills: Skill[] }) {
   }
 
   function checkIfInBounds() {
-    // If at first clone
+    // If at first element clone
     if (current >= skillsArr.length - 2) {
       setIsChanging(true);
       setCurrent(2);
     }
 
-    // If at last clone
+    // If at last element clone
     if (current < 2) {
       setIsChanging(true);
       setCurrent(skillsArr.length - 3);
@@ -59,9 +60,6 @@ function SkillSlide({ skills }: { skills: Skill[] }) {
 
   return (
     <div className="relative">
-      {/* <div
-        className={`absolute right-1/2 top-1/2 -z-10 flex w-[1250px] -translate-y-1/2 translate-x-1/2   cursor-pointer justify-between text-4xl`}
-      > */}
       <BiLeftArrowAlt
         onClick={moveLeft}
         className="absolute -left-7 top-1/2 z-10 -translate-y-1/2 cursor-pointer text-4xl"
@@ -70,10 +68,10 @@ function SkillSlide({ skills }: { skills: Skill[] }) {
         onClick={moveRight}
         className="absolute -right-7 top-1/2 z-10 -translate-y-1/2 cursor-pointer text-4xl"
       />
-      {/* </div> */}
+
       <div className="flex justify-center overflow-x-clip">
         <div
-          className={`${isChanging ? "" : "transition-transform duration-300"} flex w-3/4 sm:w-4/6 md:w-1/2 xl:w-1/3`}
+          className={`${isChanging ? "" : "transition-transform duration-300"} flex w-1/3`}
           onTransitionEnd={checkIfInBounds}
           onTouchStart={(e) =>
             (touchStart.current = e.changedTouches[0]?.screenX ?? 0)

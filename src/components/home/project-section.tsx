@@ -3,7 +3,7 @@ import { BiLogoGithub } from "react-icons/bi";
 
 function ProjectSection() {
   return (
-    <section className="mx-auto mb-28 max-w-[1200px]">
+    <section className="mx-auto mb-44 max-w-[1200px]">
       <div className="text-muted-foreground mb-10 flex items-baseline gap-4">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}

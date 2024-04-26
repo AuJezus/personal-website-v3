@@ -1,15 +1,28 @@
-import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "react";
-import { BiServer } from "react-icons/bi";
+import { cn } from "@/lib/utils";
+import { BiServer, BiWrench } from "react-icons/bi";
 import {
+  SiCss3,
+  SiDocker,
+  SiDrizzle,
   SiExpress,
+  SiFigma,
   SiFirebase,
+  SiGithub,
+  SiHtml5,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
+  SiReact,
+  SiReactquery,
+  SiShadcnui,
   SiSupabase,
+  SiTailwindcss,
   SiTypescript,
+  SiVercel,
+  SiVisualstudiocode,
 } from "react-icons/si";
+import { CgWebsite } from "react-icons/cg";
 import SkillSlide from "./skill-slide";
 
 export interface Skill {
@@ -66,11 +79,11 @@ export function SkillCard({
             {"// description"}
           </p>
           <p className="mb-6 text-center text-sm">{skill.description}</p>
-          <div className="text-muted-foreground flex justify-around text-sm">
+          <div className="text-muted-foreground flex items-center justify-around text-sm">
             {skill.stats.map((stat) => (
               <span
                 key={stat}
-                className="hover:text-primary-foreground transition-colors"
+                className="hover:text-primary-foreground transition-colors [word-spacing:-3px]"
               >
                 {stat}
               </span>
@@ -105,18 +118,18 @@ function SkillSection() {
 
       <div className="w-full border-y">
         <div className="mx-auto max-w-[1200px] py-8">
-          <h3 className="mb-12 text-5xl font-semibold">My wizard wands</h3>
+          <h3 className="mb-12 text-center text-5xl font-semibold">
+            My wizard wands
+          </h3>
 
           <SkillSlide
+            start={1}
             skills={[
               {
                 icon: <BiServer />,
                 name: "Back End Wand",
-                description: `Unleash server-side sorcery with this mighty wand. Infused with
-            Node.js, Express, and Next.js, it offers scalable solutions with
-            Postgres, Supabase, and Firebase, all backed by TypeScript for
-            reliability.`,
-                stats: ["+92 power", "+87 interactivity", "+93 agility"],
+                description: `Unleash server-side sorcery with this mighty wand. Infused with Node.js, Express, and Next.js, it offers scalable solutions with Postgres, Supabase, and Firebase, all backed by TypeScript for reliability.`,
+                stats: ["+92 power", "+94 Stability", "+87 Versatility"],
                 skills: (
                   <>
                     <Skill className="hover:bg-green-700">
@@ -139,74 +152,68 @@ function SkillSection() {
                     </Skill>
                     <Skill className="hover:bg-blue-700">
                       <SiTypescript /> Typescript
+                    </Skill>
+                    <Skill className="hover:bg-emerald-700">
+                      <SiDrizzle /> Drizzle
                     </Skill>
                   </>
                 ),
               },
               {
-                icon: <BiServer />,
-                name: "Back End Wand",
-                description: `Unleash server-side sorcery with this mighty wand. Infused with
-            Node.js, Express, and Next.js, it offers scalable solutions with
-            Postgres, Supabase, and Firebase, all backed by TypeScript for
-            reliability.`,
-                stats: ["+92 power", "+87 interactivity", "+93 agility"],
+                icon: <CgWebsite />,
+                name: "Front End Wand",
+                description: `Craft captivating UIs effortlessly with this wand. Powered by TypeScript, HTML, and CSS, it integrates seamlessly with React and Tailwind for stunning visuals and interactivity`,
+                stats: ["+95 power", "+87 interactivity", "+93 agility"],
                 skills: (
                   <>
-                    <Skill className="hover:bg-green-700">
-                      <SiNodedotjs /> Node.js
-                    </Skill>
-                    <Skill className="hover:bg-neutral-500">
-                      <SiNextdotjs /> Next.js
-                    </Skill>
-                    <Skill className="hover:bg-blue-700">
-                      <SiPostgresql /> Postgres
-                    </Skill>
-                    <Skill className="hover:bg-green-700">
-                      <SiSupabase /> Supabase
-                    </Skill>
-                    <Skill className="hover:bg-orange-600">
-                      <SiFirebase /> Firebase
-                    </Skill>
-                    <Skill className="hover:bg-red-700">
-                      <SiExpress /> Express
-                    </Skill>
                     <Skill className="hover:bg-blue-700">
                       <SiTypescript /> Typescript
+                    </Skill>
+                    <Skill className="hover:bg-orange-600">
+                      <SiHtml5 /> HTML
+                    </Skill>
+                    <Skill className="hover:bg-cyan-700">
+                      <SiCss3 /> CSS
+                    </Skill>
+                    <Skill className="hover:bg-sky-700">
+                      <SiReact /> React
+                    </Skill>
+                    <Skill className="hover:bg-red-700">
+                      <SiReactquery /> React Query
+                    </Skill>
+                    <Skill className="hover:bg-neutral-700">
+                      <SiShadcnui /> Shadcn/ui
+                    </Skill>
+                    <Skill className="hover:bg-cyan-700">
+                      <SiTailwindcss /> Tailwind
                     </Skill>
                   </>
                 ),
               },
               {
-                icon: <BiServer />,
-                name: "Back End Wand",
-                description: `Unleash server-side sorcery with this mighty wand. Infused with
-            Node.js, Express, and Next.js, it offers scalable solutions with
-            Postgres, Supabase, and Firebase, all backed by TypeScript for
-            reliability.`,
-                stats: ["+92 power", "+87 interactivity", "+93 agility"],
+                icon: <BiWrench />,
+                name: "Tools Wand",
+                description: `Equip yourself with this versatile wand for your coding journey. From VS Code to Figma, it provides essential tools, while Vercel, Docker, and Vite ensure speed and efficiency in your projects.`,
+                stats: ["+97 power", "+90 efficiency", "+91 deployment"],
                 skills: (
                   <>
-                    <Skill className="hover:bg-green-700">
-                      <SiNodedotjs /> Node.js
+                    <Skill className="hover:bg-sky-700">
+                      <SiVisualstudiocode /> VS Code
                     </Skill>
-                    <Skill className="hover:bg-neutral-500">
-                      <SiNextdotjs /> Next.js
-                    </Skill>
-                    <Skill className="hover:bg-blue-700">
-                      <SiPostgresql /> Postgres
-                    </Skill>
-                    <Skill className="hover:bg-green-700">
-                      <SiSupabase /> Supabase
-                    </Skill>
-                    <Skill className="hover:bg-orange-600">
-                      <SiFirebase /> Firebase
+                    <Skill className="hover:bg-neutral-700">
+                      <SiGithub /> GitHub
                     </Skill>
                     <Skill className="hover:bg-red-700">
-                      <SiExpress /> Express
+                      <SiFigma /> Figma
+                    </Skill>
+                    <Skill className="hover:bg-neutral-500">
+                      <SiVercel /> Vercel
                     </Skill>
                     <Skill className="hover:bg-blue-700">
-                      <SiTypescript /> Typescript
+                      <SiDocker /> Docker
+                    </Skill>
+                    <Skill className="hover:bg-amber-700">
+                      <SiExpress /> Vite
                     </Skill>
                   </>
                 ),
