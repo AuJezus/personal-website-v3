@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function BlogSection() {
   return (
-    <section className="mx-auto max-w-[1200px]">
+    <section className="mx-auto mb-28 max-w-[1200px]">
       <div className="text-muted-foreground mb-10 flex items-baseline gap-4">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}
@@ -63,7 +63,7 @@ function BlogSection() {
                 href={"/blog/1"}
                 className="hover:text-primary-foreground transition-colors"
               >
-                Infra I'm Building On In 2024
+                Infra I&apos;m Building On In 2024
               </Link>
             </li>
 
