@@ -107,7 +107,7 @@ export function SkillCard({
 
 function SkillSection() {
   return (
-    <section>
+    <section className="mb-44">
       <div className="text-muted-foreground mx-auto mb-10 flex max-w-[1200px] items-baseline gap-4">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}
