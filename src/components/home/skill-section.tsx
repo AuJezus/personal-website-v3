@@ -21,6 +21,7 @@ import {
   SiTypescript,
   SiVercel,
   SiVisualstudiocode,
+  SiVite,
 } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
 import SkillSlide from "./skill-slide";
@@ -213,7 +214,7 @@ function SkillSection() {
                       <SiDocker /> Docker
                     </Skill>
                     <Skill className="hover:bg-amber-700">
-                      <SiExpress /> Vite
+                      <SiVite /> Vite
                     </Skill>
                   </>
                 ),
