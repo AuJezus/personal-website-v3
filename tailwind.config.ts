@@ -80,11 +80,16 @@ const config = {
           "50%": { opacity: "1" },
           to: { opacity: "0" },
         },
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         blink: "blink 0.75s step-end infinite",
+        "infinite-scroll": "infinite-scroll 10s linear infinite",
       },
     },
   },

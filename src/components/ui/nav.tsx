@@ -76,9 +76,19 @@ function Nav() {
             <BiCircle className="text-green-500" /> ONLINE
           </p>
 
-          <div className="flex max-w-52 items-center gap-2 overflow-clip">
-            <BiMusic className="shrink-0 text-red-500" />
-            <p className="text-nowrap">Tiktai Muzika (Live&apos;93) - Foje</p>
+          <div className="flex max-w-64 items-center gap-2">
+            <BiMusic className="shrink-0 text-red-500" /> Last:
+            <div className="linear flex overflow-clip [mask:linear-gradient(to_right,transparent_0,black_15%,black_85%,transparent_100%)]">
+              <p className="animate-infinite-scroll text-nowrap pr-12">
+                Tiktai Muzika (Live&apos;93) - Foje
+              </p>
+              <p
+                className="animate-infinite-scroll text-nowrap pr-12"
+                aria-hidden="true"
+              >
+                Tiktai Muzika (Live&apos;93) - Foje
+              </p>
+            </div>
           </div>
         </div>
       </div>
