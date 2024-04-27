@@ -61,7 +61,7 @@ export function SkillCard({
   onClick?: () => void;
 }) {
   return (
-    <div onClick={onClick}>
+    <div className={onClick && "cursor-pointer"} onClick={onClick}>
       <div
         className={cn(
           "bg-secondary/20 border-primary/30 hover:border-primary/60 flex max-w-md scale-100 flex-col divide-y-2 rounded-lg border-4 transition-all duration-300 hover:shadow-[0_0_15px] hover:shadow-violet-500",

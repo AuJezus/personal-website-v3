@@ -93,7 +93,13 @@ function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
                   (current < 2 && i === skillsArr.length - 3)
                 }
                 skill={skill}
-                onClick={current > i ? moveLeft : moveRight}
+                onClick={
+                  current !== i
+                    ? current > i
+                      ? moveLeft
+                      : moveRight
+                    : undefined
+                }
               />
             </div>
           ))}
