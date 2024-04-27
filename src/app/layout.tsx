@@ -1,3 +1,4 @@
+import Footer from "@/components/ui/footer";
 import Nav from "@/components/ui/nav";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
@@ -29,8 +30,8 @@ export default function RootLayout({
         )}
       >
         <Nav />
-
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
