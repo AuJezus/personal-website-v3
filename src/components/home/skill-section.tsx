@@ -43,7 +43,7 @@ function Skill({
     <div
       {...props}
       className={cn(
-        "text-primary-foreground flex items-center gap-2 rounded-md px-3 py-1.5 transition-all",
+        "flex items-center gap-2 rounded-md px-3 py-1.5 transition-all",
         className,
       )}
     >
@@ -84,7 +84,7 @@ export function SkillCard({
             {skill.stats.map((stat) => (
               <span
                 key={stat}
-                className="hover:text-primary-foreground transition-colors [word-spacing:-3px]"
+                className="hover:text-foreground transition-colors [word-spacing:-3px]"
               >
                 {stat}
               </span>

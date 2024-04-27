@@ -61,7 +61,7 @@ function BlogSection() {
               -
               <Link
                 href={"/blog/1"}
-                className="hover:text-primary-foreground transition-colors"
+                className="hover:text-foreground transition-colors"
               >
                 Infra I&apos;m Building On In 2024
               </Link>
@@ -71,7 +71,7 @@ function BlogSection() {
               -
               <Link
                 href={"/blog/1"}
-                className="hover:text-primary-foreground transition-colors"
+                className="hover:text-foreground transition-colors"
               >
                 Getting my dream job
               </Link>
@@ -81,7 +81,7 @@ function BlogSection() {
               -
               <Link
                 href={"/blog/1"}
-                className="hover:text-primary-foreground transition-colors"
+                className="hover:text-foreground transition-colors"
               >
                 An Inconsistent Truth: Next.js and Type Safety
               </Link>
@@ -91,7 +91,7 @@ function BlogSection() {
               -
               <Link
                 href={"/blog/1"}
-                className="hover:text-primary-foreground transition-colors"
+                className="hover:text-foreground transition-colors"
               >
                 How to make an interactive and responsive carousel
               </Link>

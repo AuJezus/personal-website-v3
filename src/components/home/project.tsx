@@ -30,7 +30,7 @@ function Project(props: { left?: boolean }) {
 
       <div className="w-full">
         <p className="mb-4 text-2xl">aujezus-play</p>
-        <p className="text-muted-foreground group-hover:text-primary-foreground transition-colors duration-500">
+        <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-500">
           A simple music listening app, that fetches songs from your favourite
           youtube playlist.
         </p>
