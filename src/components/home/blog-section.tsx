@@ -15,7 +15,8 @@ function BlogSection() {
       <h3 className="mb-12 text-4xl font-semibold">Check out my blog posts!</h3>
 
       <div className="hover:bg-primary/15 bg-border/20 relative z-0 flex gap-8 transition-all duration-500">
-        <div className="to-background absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-transparent from-10% to-70%"></div>
+        <div className="to-background absolute -z-20 h-full w-full bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-transparent from-10% to-70%"></div>
+        <div className="to-red-transparent from-background absolute -z-10 h-full w-full bg-[linear-gradient(to_left,_var(--tw-gradient-stops))] to-20%"></div>
 
         <div className="flex w-full flex-col gap-4">
           <Link

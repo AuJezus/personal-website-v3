@@ -53,7 +53,7 @@ function Nav() {
 
       <ul
         className={cn(
-          "mx-auto flex w-fit justify-center gap-6 rounded-md border-2 border-transparent px-3 py-2 transition-all",
+          "flex w-fit justify-center gap-6 rounded-md border-2 border-transparent px-3 py-2 transition-all",
           !isHeroInViewHalf && "bg-background border-secondary",
         )}
       >
@@ -78,7 +78,7 @@ function Nav() {
 
           <div className="flex max-w-64 items-center gap-2">
             <BiMusic className="shrink-0 text-red-500" /> Last:
-            <div className="linear flex overflow-clip [mask:linear-gradient(to_right,transparent_0,black_15%,black_85%,transparent_100%)]">
+            <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
               <p className="animate-infinite-scroll text-nowrap pr-12">
                 Tiktai Muzika (Live&apos;93) - Foje
               </p>
