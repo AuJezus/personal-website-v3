@@ -7,7 +7,7 @@ import ContactSection from "@/components/home/contact-section";
 
 export default function HomePage() {
   return (
-    <main className="min-h-[1000vh]">
+    <>
       <HeroSection />
 
       <ProjectSection />
@@ -19,6 +19,6 @@ export default function HomePage() {
       <BlogSection />
 
       <ContactSection />
-    </main>
+    </>
   );
 }

@@ -1,11 +1,19 @@
 "use client";
 
 import NoiseSvg from "@/components/home/noise-svg";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ConctactList from "../contact-list";
+import { atom, useAtom } from "jotai";
+
+export const isHeroInViewAtom = atom(true);
+export const isHeroInViewHalfAtom = atom(true);
 
 function HeroSection() {
   const [isGlitching, setIsGlitching] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHeroInView, setIsHeroInView] = useAtom(isHeroInViewAtom);
+  const [isHeroInViewHalf, setIsHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
 
   const addGlitchEffect = useCallback(() => {
     setIsGlitching(true);
@@ -29,8 +37,40 @@ function HeroSection() {
     };
   }, [isGlitching, addGlitchEffect]);
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const containerEl = containerRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => setIsHeroInView(entries[0]?.isIntersecting ?? false),
+      {
+        root: null,
+        rootMargin: `0px`,
+        threshold: 0.01,
+      },
+    );
+    observer.observe(containerEl);
+
+    const observerHalf = new IntersectionObserver(
+      (entries) => setIsHeroInViewHalf(entries[0]?.isIntersecting ?? false),
+      {
+        root: null,
+        rootMargin: `0px`,
+        threshold: 0.6,
+      },
+    );
+    observerHalf.observe(containerEl);
+
+    return () => {
+      if (containerEl) {
+        observer.unobserve(containerEl);
+        observerHalf.unobserve(containerEl);
+      }
+    };
+  }, [containerRef, setIsHeroInView, setIsHeroInViewHalf]);
+
   return (
-    <div className="relative mb-28 h-screen">
+    <div ref={containerRef} className="relative mb-28 h-screen">
       {/* Background effects */}
       <NoiseSvg />
       <div

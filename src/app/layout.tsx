@@ -1,3 +1,4 @@
+import Nav from "@/components/ui/nav";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           robotoMono.variable,
         )}
       >
-        {children}
+        <Nav />
+
+        <main>{children}</main>
       </body>
     </html>
   );
