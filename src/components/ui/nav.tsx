@@ -6,8 +6,13 @@ import { useAtom } from "jotai";
 import { BiCircle, BiMusic } from "react-icons/bi";
 import { isHeroInViewAtom } from "../home/hero-section";
 import { isHeroInViewHalfAtom } from "../home/hero-section";
+import Link from "next/link";
 
 const links = [
+  {
+    name: "projects",
+    url: "#projects",
+  },
   {
     name: "about-me",
     url: "#about",
@@ -17,16 +22,12 @@ const links = [
     url: "#skills",
   },
   {
-    name: "projects",
-    url: "#projects",
-  },
-  {
-    name: "contacts",
-    url: "#contacts",
+    name: "contact",
+    url: "#contact",
   },
   {
     name: "blog",
-    url: "/blogs/aujezus",
+    url: "/blog",
   },
 ];
 
@@ -58,9 +59,19 @@ function Nav() {
         )}
       >
         {links.map((link) => (
-          <li className="group relative text-nowrap indent-2" key={link.name}>
-            <a href={link.url}>{link.name}</a>
-            <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
+          <li className="relative text-nowrap indent-2" key={link.name}>
+            {link.url.startsWith("#") && (
+              <a className="group" href={link.url}>
+                {link.name}
+                <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
+              </a>
+            )}
+            {!link.url.startsWith("#") && (
+              <Link className="group" href={link.url}>
+                {link.name}
+                <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
+              </Link>
+            )}
           </li>
         ))}
       </ul>

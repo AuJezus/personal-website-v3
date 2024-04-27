@@ -42,7 +42,7 @@ function ContactSection() {
   }
 
   return (
-    <section className="mx-auto mb-28 max-w-[1200px]">
+    <section id="contact" className="mx-auto mb-28 max-w-[1200px]">
       <div className="text-muted-foreground mb-10 flex items-baseline gap-4">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}
