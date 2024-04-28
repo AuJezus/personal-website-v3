@@ -1,11 +1,12 @@
 import LatestTrack from "@/components/latest-track";
+import MyStatus from "@/components/my-status";
 import Footer from "@/components/ui/footer";
 import Nav from "@/components/ui/nav";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 import { Roboto_Mono } from "next/font/google";
-import { BiCircle } from "react-icons/bi";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -17,6 +18,8 @@ export const metadata = {
   description: "Portfolio website of Augustas Vaivada (Aujezus)",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
+
+export const revalidate = 30;
 
 export default function RootLayout({
   children,
@@ -31,16 +34,16 @@ export default function RootLayout({
           robotoMono.variable,
         )}
       >
-        <Nav>
-          <p className="flex items-center gap-2 text-sm">
-            <BiCircle className="text-green-500" /> ONLINE
-          </p>
-          <LatestTrack />
-        </Nav>
+        <TooltipProvider>
+          <Nav>
+            <MyStatus />
+            <LatestTrack />
+          </Nav>
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer />
+          <Footer />
+        </TooltipProvider>
       </body>
     </html>
   );
