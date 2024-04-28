@@ -39,7 +39,7 @@ export async function getLatestTrack() {
       artist: track?.artist["#text"],
       name: track?.name,
       trackUrl: track?.url,
-      nowPlaying: track?.["@attr"].nowplaying,
+      nowPlaying: track?.["@attr"]?.nowplaying ?? false,
     };
   } catch (error) {
     console.error(error);

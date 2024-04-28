@@ -16,14 +16,15 @@ async function LatestTrack() {
           track.nowPlaying ? "text-green-500" : "text-red-500",
         )}
       />
-      {!track.message && !track.nowPlaying && "Last:"}
       {track.message}
+      {!track.message && !track.nowPlaying && "Last:"}
       {!track.message && (
         <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
           {["", ""].map((_, i) => (
             <a
               key={uniqid()}
               href={track.trackUrl}
+              target="_blank"
               aria-hidden={i === 2 && "true"}
               className="animate-infinite-scroll text-nowrap pr-12"
             >
