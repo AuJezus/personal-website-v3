@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { SkillCard, type Skill } from "./skill-section";
+import uniqid from "uniqid";
 
 function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
   const [current, setCurrent] = useState(start + 2);
@@ -84,7 +85,7 @@ function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
           {skillsArr.map((skill, i) => (
             <div
               className="flex-shrink-0 flex-grow-0 basis-full"
-              key={skill?.name ?? "undefined" + i}
+              key={uniqid()}
             >
               <SkillCard
                 isCurrent={

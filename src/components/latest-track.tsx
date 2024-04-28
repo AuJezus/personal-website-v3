@@ -20,7 +20,7 @@ async function LatestSong() {
       {track.message}
       {!track.message && (
         <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
-          {[,].map((_, i) => (
+          {["", ""].map((_, i) => (
             <p
               key={uniqid()}
               className="animate-infinite-scroll text-nowrap pr-12"

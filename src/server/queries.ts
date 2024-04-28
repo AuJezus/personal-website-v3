@@ -26,7 +26,9 @@ export async function getLatestTrack() {
   });
 
   try {
-    const response = await fetch(`${apiUrl}?${params.toString()}`);
+    const response = await fetch(`${apiUrl}?${params.toString()}`, {
+      next: { revalidate: 30 },
+    });
     const responseObj = (await response.json()) as LastFMResponse;
 
     if (!response.ok) throw responseObj;

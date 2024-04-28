@@ -1,4 +1,4 @@
-import LatestSong from "@/components/latest-song";
+import LatestSong from "@/components/latest-track";
 import Footer from "@/components/ui/footer";
 import Nav from "@/components/ui/nav";
 import { cn } from "@/lib/utils";
