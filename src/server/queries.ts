@@ -11,6 +11,7 @@ interface LastFMResponse {
       "@attr": {
         nowplaying?: boolean;
       };
+      url: string;
     }[];
   };
 }
@@ -37,6 +38,7 @@ export async function getLatestTrack() {
     return {
       artist: track?.artist["#text"],
       name: track?.name,
+      trackUrl: track?.url,
       nowPlaying: track?.["@attr"].nowplaying,
     };
   } catch (error) {

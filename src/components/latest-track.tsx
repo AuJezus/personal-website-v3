@@ -21,13 +21,14 @@ async function LatestTrack() {
       {!track.message && (
         <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
           {["", ""].map((_, i) => (
-            <p
+            <a
               key={uniqid()}
-              className="animate-infinite-scroll text-nowrap pr-12"
+              href={track.trackUrl}
               aria-hidden={i === 2 && "true"}
+              className="animate-infinite-scroll text-nowrap pr-12"
             >
               {trackString}
-            </p>
+            </a>
           ))}
         </div>
       )}
