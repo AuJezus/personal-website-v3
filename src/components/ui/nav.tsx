@@ -3,7 +3,6 @@
 import useScrollUp from "@/lib/useScrollUp";
 import { cn } from "@/lib/utils";
 import { useAtom } from "jotai";
-import { BiCircle, BiMusic } from "react-icons/bi";
 import { isHeroInViewAtom } from "../home/hero-section";
 import { isHeroInViewHalfAtom } from "../home/hero-section";
 import Link from "next/link";
@@ -31,7 +30,7 @@ const links = [
   },
 ];
 
-function Nav() {
+function Nav(props: { children: React.ReactNode }) {
   const isScrollUp = useScrollUp();
   const [isHeroInView] = useAtom(isHeroInViewAtom);
   const [isHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
@@ -82,26 +81,7 @@ function Nav() {
           !isHeroInView && "opacity-0",
         )}
       >
-        <div className="flex w-fit gap-6 rounded-md text-sm">
-          <p className="flex items-center gap-2">
-            <BiCircle className="text-green-500" /> ONLINE
-          </p>
-
-          <div className="flex max-w-64 items-center gap-2">
-            <BiMusic className="shrink-0 text-red-500" /> Last:
-            <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
-              <p className="animate-infinite-scroll text-nowrap pr-12">
-                Tiktai Muzika (Live&apos;93) - Foje
-              </p>
-              <p
-                className="animate-infinite-scroll text-nowrap pr-12"
-                aria-hidden="true"
-              >
-                Tiktai Muzika (Live&apos;93) - Foje
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="flex items-center gap-6">{props.children}</div>
       </div>
     </nav>
   );

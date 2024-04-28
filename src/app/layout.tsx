@@ -1,9 +1,11 @@
+import LatestSong from "@/components/latest-song";
 import Footer from "@/components/ui/footer";
 import Nav from "@/components/ui/nav";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 import { Roboto_Mono } from "next/font/google";
+import { BiCircle } from "react-icons/bi";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -29,8 +31,15 @@ export default function RootLayout({
           robotoMono.variable,
         )}
       >
-        <Nav />
+        <Nav>
+          <p className="flex items-center gap-2 text-sm">
+            <BiCircle className="text-green-500" /> ONLINE
+          </p>
+          <LatestSong />
+        </Nav>
+
         <main>{children}</main>
+
         <Footer />
       </body>
     </html>
