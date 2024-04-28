@@ -3,7 +3,7 @@ import { getLatestTrack } from "@/server/queries";
 import { BiMusic } from "react-icons/bi";
 import uniqid from "uniqid";
 
-async function LatestSong() {
+async function LatestTrack() {
   const track = await getLatestTrack();
 
   const trackString = `${track.artist} - ${track.name}`;
@@ -35,4 +35,4 @@ async function LatestSong() {
   );
 }
 
-export default LatestSong;
+export default LatestTrack;

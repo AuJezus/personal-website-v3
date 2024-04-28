@@ -1,4 +1,4 @@
-import LatestSong from "@/components/latest-track";
+import LatestTrack from "@/components/latest-track";
 import Footer from "@/components/ui/footer";
 import Nav from "@/components/ui/nav";
 import { cn } from "@/lib/utils";
@@ -35,7 +35,7 @@ export default function RootLayout({
           <p className="flex items-center gap-2 text-sm">
             <BiCircle className="text-green-500" /> ONLINE
           </p>
-          <LatestSong />
+          <LatestTrack />
         </Nav>
 
         <main>{children}</main>
