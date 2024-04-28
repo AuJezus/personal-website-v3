@@ -91,7 +91,11 @@ function HeroSection() {
 
         <div className="absolute bottom-8 z-10 flex flex-col items-center gap-8">
           <ConctactList />
-          <a href="" className="font text-sm hover:underline">
+          <a
+            href="https://drive.google.com/drive/folders/19NwJcutDY-WrdWaASwjXAvVBW4FHzWHU?usp=sharing"
+            target="_blank"
+            className="font text-sm hover:underline"
+          >
             Download Resume
           </a>
         </div>

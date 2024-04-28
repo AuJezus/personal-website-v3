@@ -9,8 +9,9 @@ import {
 function Contact(props: { children: React.ReactNode; href: string }) {
   return (
     <a
-      className={`text-foreground/80 hover:text-foreground flex items-center justify-center text-3xl transition-all hover:scale-110`}
       href={props.href}
+      target="_blank"
+      className={`text-foreground/80 hover:text-foreground flex items-center justify-center text-3xl transition-all hover:scale-110`}
     >
       {props.children}
     </a>
