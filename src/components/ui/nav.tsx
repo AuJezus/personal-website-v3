@@ -10,19 +10,19 @@ import Link from "next/link";
 const links = [
   {
     name: "projects",
-    url: "#projects",
+    url: "/#projects",
   },
   {
     name: "about-me",
-    url: "#about",
+    url: "/#about",
   },
   {
     name: "skills",
-    url: "#skills",
+    url: "/#skills",
   },
   {
     name: "contact",
-    url: "#contact",
+    url: "/#contact",
   },
   {
     name: "blog",
@@ -59,18 +59,10 @@ function Nav(props: { children: React.ReactNode }) {
       >
         {links.map((link) => (
           <li className="relative text-nowrap indent-2" key={link.name}>
-            {link.url.startsWith("#") && (
-              <a className="group" href={link.url}>
-                {link.name}
-                <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
-              </a>
-            )}
-            {!link.url.startsWith("#") && (
-              <Link className="group" href={link.url}>
-                {link.name}
-                <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
-              </Link>
-            )}
+            <Link className="group" href={link.url}>
+              {link.name}
+              <div className="bg-foreground absolute bottom-[17%] h-[1.5px] w-[8px] transition-all duration-300 group-hover:w-full "></div>
+            </Link>
           </li>
         ))}
       </ul>

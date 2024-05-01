@@ -26,6 +26,8 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: z.string(),
     LAST_FM_API_KEY: z.string(),
     WAKATIME_API_KEY: z.string(),
+    GMAIL_USER: z.string(),
+    GMAIL_PASS: z.string(),
   },
 
   /**
@@ -50,6 +52,8 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     LAST_FM_API_KEY: process.env.LAST_FM_API_KEY,
     WAKATIME_API_KEY: process.env.WAKATIME_API_KEY,
+    GMAIL_USER: process.env.GMAIL_USER,
+    GMAIL_PASS: process.env.GMAIL_PASS,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

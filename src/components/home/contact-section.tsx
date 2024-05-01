@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { sendMessage } from "@/server/actions";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -76,7 +77,8 @@ function ContactSection() {
 
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(onSubmit)}
+            // onSubmit={form.handleSubmit(onSubmit)}
+            action={sendMessage}
             className={cn(
               "mx-auto grid max-w-2xl grid-cols-2 gap-x-8 gap-y-4 transition-opacity",
               isSuccess && "opacity-0",
@@ -137,7 +139,6 @@ function ContactSection() {
               type="submit"
               className="col-span-2 w-fit min-w-24 justify-self-center"
               onClick={(e) => {
-                e.preventDefault();
                 setIsSuccess(true);
               }}
             >
