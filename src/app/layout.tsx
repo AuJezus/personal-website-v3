@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 import { Roboto_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -44,6 +45,16 @@ export default function RootLayout({
 
           <Footer />
         </TooltipProvider>
+        <Toaster
+          toastOptions={{
+            unstyled: true,
+            classNames: {
+              toast:
+                "bg-card flex items-center gap-2 border-2 border-border w-full p-4 rounded-md",
+              error: "text-destructive",
+            },
+          }}
+        />
       </body>
     </html>
   );
