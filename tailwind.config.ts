@@ -95,6 +95,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
     plugin(
       function ({ addVariant, theme, addUtilities }) {
         // Add variant

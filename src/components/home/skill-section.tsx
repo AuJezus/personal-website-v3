@@ -62,7 +62,7 @@ export function SkillCard({
   onClick?: () => void;
 }) {
   return (
-    <div id="skills" className={onClick && "cursor-pointer"} onClick={onClick}>
+    <div className={onClick && "cursor-pointer"} onClick={onClick}>
       <div
         className={cn(
           "bg-secondary/20 border-primary/30 hover:border-primary/60 flex max-w-md scale-100 flex-col divide-y-2 rounded-lg border-4 transition-all duration-300 hover:shadow-[0_0_15px] hover:shadow-violet-500",
@@ -107,7 +107,7 @@ export function SkillCard({
 
 function SkillSection() {
   return (
-    <section className="mb-44">
+    <section id="skills" className="mb-44">
       <div className="text-muted-foreground mx-auto mb-10 flex max-w-[1200px] items-baseline gap-4">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}

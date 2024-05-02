@@ -5,6 +5,7 @@ import Nav from "@/components/ui/nav";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { Provider } from "jotai";
 
 import { Roboto_Mono } from "next/font/google";
 import { Toaster } from "sonner";
@@ -35,16 +36,18 @@ export default function RootLayout({
           robotoMono.variable,
         )}
       >
-        <TooltipProvider>
-          <Nav>
-            <MyStatus />
-            <LatestTrack />
-          </Nav>
+        <Provider>
+          <TooltipProvider>
+            <Nav>
+              <MyStatus />
+              <LatestTrack />
+            </Nav>
 
-          <main>{children}</main>
+            <main>{children}</main>
 
-          <Footer />
-        </TooltipProvider>
+            <Footer />
+          </TooltipProvider>
+        </Provider>
         <Toaster
           toastOptions={{
             unstyled: true,

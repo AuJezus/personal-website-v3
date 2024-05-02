@@ -83,10 +83,7 @@ function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
           }}
         >
           {skillsArr.map((skill, i) => (
-            <div
-              className="flex-shrink-0 flex-grow-0 basis-full"
-              key={uniqid()}
-            >
+            <div className="flex-shrink-0 flex-grow-0 basis-full" key={i}>
               <SkillCard
                 isCurrent={
                   i === current ||

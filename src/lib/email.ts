@@ -1,8 +1,6 @@
 import { env } from "@/env";
 import nodemailer from "nodemailer";
 
-console.log(env.GMAIL_PASS);
-
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   host: "smtp.gmail.com",

@@ -47,6 +47,7 @@
     "zod-form-data": "^2.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.57",
@@ -62,7 +63,8 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "velite": "^0.1.0-beta.14"
   },
   "ct3aMetadata": {
     "initVersion": "7.30.2"
