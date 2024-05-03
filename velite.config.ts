@@ -12,7 +12,8 @@ const posts = {
       title: s.string().max(99), // Zod primitive type
       published: s.boolean().default(true),
       date: s.isodate(), // input Date-like string, output ISO Date string.
-      excerpt: s.excerpt(), // excerpt of markdown content
+      tags: s.array(s.string()).optional(),
+      description: s.string().max(99).optional(), // excerpt of markdown content
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
       content: s.mdx(), // transform markdown to html
     })

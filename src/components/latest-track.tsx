@@ -1,9 +1,12 @@
 import { cn } from "@/lib/utils";
 import { getLatestTrack } from "@/server/queries";
+import type { HTMLAttributes } from "react";
 import { BiError, BiMusic } from "react-icons/bi";
-import uniqid from "uniqid";
 
-async function LatestTrack() {
+async function LatestTrack({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
   const { artist, name, trackUrl, nowPlaying, message } =
     await getLatestTrack();
 
@@ -17,18 +20,21 @@ async function LatestTrack() {
     );
 
   return (
-    <div className="flex max-w-64 items-center gap-2 text-sm">
+    <div className={cn("flex items-center gap-2 text-sm", className)}>
       <BiMusic
         className={cn("shrink-0 text-red-500", nowPlaying && "text-green-500")}
       />
       {!nowPlaying && "Last:"}
-      <div className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]">
+      <div
+        className="via flex overflow-clip from-transparent via-black via-[percentage:15%_85%] to-transparent [mask:linear-gradient(to_right,_var(--tw-gradient-stops))]"
+        {...props}
+      >
         {["", ""].map((_, i) => (
           <a
-            key={uniqid()}
+            key={i}
             href={trackUrl}
             target="_blank"
-            aria-hidden={i === 2 && "true"}
+            aria-hidden={i === 1 && "true"}
             className="animate-infinite-scroll text-nowrap pr-12"
           >
             {trackString}

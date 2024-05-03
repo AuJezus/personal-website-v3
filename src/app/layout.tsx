@@ -1,7 +1,4 @@
-import LatestTrack from "@/components/latest-track";
-import MyStatus from "@/components/my-status";
-import Footer from "@/components/ui/footer";
-import Nav from "@/components/ui/nav";
+import Footer from "@/components/footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
@@ -21,8 +18,6 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export const revalidate = 30;
-
 export default function RootLayout({
   children,
 }: {
@@ -32,18 +27,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-background dark min-h-screen font-mono antialiased",
+          "dark flex min-h-screen flex-col bg-background font-mono antialiased",
           robotoMono.variable,
         )}
       >
         <Provider>
           <TooltipProvider>
-            <Nav>
-              <MyStatus />
-              <LatestTrack />
-            </Nav>
-
-            <main>{children}</main>
+            {children}
 
             <Footer />
           </TooltipProvider>
