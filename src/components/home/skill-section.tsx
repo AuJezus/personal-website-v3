@@ -34,85 +34,14 @@ export interface Skill {
   skills: React.ReactNode;
 }
 
-function Skill({
-  children,
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      {...props}
-      className={cn(
-        "flex items-center gap-2 rounded-md px-3 py-1.5 transition-all",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function SkillCard({
-  skill,
-  isCurrent,
-  onClick,
-}: {
-  skill: Skill;
-  isCurrent: boolean;
-  onClick?: () => void;
-}) {
-  return (
-    <div className={onClick && "cursor-pointer"} onClick={onClick}>
-      <div
-        className={cn(
-          "bg-secondary/20 border-primary/30 hover:border-primary/60 flex max-w-md scale-100 flex-col divide-y-2 rounded-lg border-4 transition-all duration-300 hover:shadow-[0_0_15px] hover:shadow-violet-500",
-          !isCurrent &&
-            "hover:border-secondary border-secondary pointer-events-none scale-[0.85] cursor-pointer opacity-30 hover:shadow-none",
-        )}
-      >
-        <div className="flex items-center">
-          <div className="border-r-2 p-4 text-5xl">{skill.icon}</div>
-          <p className="mx-auto text-3xl font-semibold">{skill.name}</p>
-        </div>
-
-        <div className="p-4">
-          <p className="text-primary mb-4 text-center text-sm">
-            {"// description"}
-          </p>
-          <p className="mb-6 text-center text-sm">{skill.description}</p>
-          <div className="text-muted-foreground flex items-center justify-around text-sm">
-            {skill.stats.map((stat) => (
-              <span
-                key={stat}
-                className="hover:text-foreground transition-colors [word-spacing:-3px]"
-              >
-                {stat}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="p-6">
-          <p className="text-primary mb-4 text-center text-sm">
-            {"// magic spells"}
-          </p>
-          <div className="flex flex-wrap justify-around gap-4 text-lg font-semibold">
-            {skill.skills}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function SkillSection() {
   return (
     <section id="skills" className="mb-44">
-      <div className="text-muted-foreground mx-auto mb-10 flex max-w-[1200px] items-baseline gap-4">
+      <div className="mx-auto mb-10 flex max-w-[1200px] items-baseline gap-4 text-muted-foreground">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}
         </span>
-        <h2 className="text-primary text-lg">
+        <h2 className="text-lg text-primary">
           skills<span className="animate-blink">_</span>
         </h2>
       </div>
@@ -224,6 +153,24 @@ function SkillSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function Skill({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      {...props}
+      className={cn(
+        "flex items-center gap-2 rounded-md px-3 py-1.5 transition-all",
+        className,
+      )}
+    >
+      {children}
+    </div>
   );
 }
 
