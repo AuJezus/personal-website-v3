@@ -1,4 +1,4 @@
-import { posts } from "@/content";
+import { posts, type Post } from "@/content";
 import { useSearchParams } from "next/navigation";
 
 export function getBlogTagsArr() {
@@ -14,30 +14,6 @@ export function getBlogTagsArr() {
 
   return tagsArr;
 }
-
-export const OrderByOptions = {
-  Alphabet: "alph",
-  Date: "date",
-} as const;
-
-export const OrderOptions = {
-  Ascending: "asc",
-  Descending: "desc",
-} as const;
-
-export type OrderByOption =
-  (typeof OrderByOptions)[keyof typeof OrderByOptions];
-export type OrderOption = (typeof OrderOptions)[keyof typeof OrderOptions];
-
-export interface Sort {
-  by?: OrderByOption;
-  order?: OrderOption;
-}
-
-export const defaultSort: Sort = {
-  by: OrderByOptions.Date,
-  order: OrderOptions.Descending,
-};
 
 export function useFilterSearchParams() {
   const params = useSearchParams();
@@ -64,3 +40,39 @@ export function useFilterSearchParams() {
     order: orderSafe,
   };
 }
+
+export type OrderByOption =
+  (typeof OrderByOptions)[keyof typeof OrderByOptions];
+
+export type OrderOption = (typeof OrderOptions)[keyof typeof OrderOptions];
+
+export const OrderByOptions = {
+  Alphabet: "alph",
+  Date: "date",
+} as const;
+
+export const OrderOptions = {
+  Ascending: "asc",
+  Descending: "desc",
+} as const;
+
+export const defaultSort: { by: OrderByOption; order: OrderOption } = {
+  by: OrderByOptions.Date,
+  order: OrderOptions.Descending,
+};
+
+export const SortFunctions: {
+  [key in OrderByOption]: {
+    [key in OrderOption]: (a: Post, b: Post) => number;
+  };
+} = {
+  alph: {
+    desc: (a: Post, b: Post) => -1 * a.title.localeCompare(b.title),
+    asc: (a: Post, b: Post) => a.title.localeCompare(b.title),
+  },
+  date: {
+    desc: (a: Post, b: Post) =>
+      a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
+    asc: (a: Post, b: Post) => (a.date > b.date ? 1 : a.date < b.date ? -1 : 0),
+  },
+};

@@ -1,5 +1,5 @@
-import LatestTrack from "@/components/latest-track";
-import MyStatus from "@/components/my-status";
+import LatestTrack from "@/components/nav/latest-track";
+import MyStatus from "@/components/nav/my-status";
 import { NavHome } from "@/components/nav/nav-wrappers";
 
 export const revalidate = 30;

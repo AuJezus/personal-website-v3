@@ -1,6 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import {
   Menubar,
   MenubarItem,
@@ -9,13 +11,14 @@ import {
   MenubarContent,
   MenubarSeparator,
 } from "./ui/menubar";
-import React, { useEffect, useState } from "react";
 import { BiCheck, BiX } from "react-icons/bi";
-import { cn } from "@/lib/utils";
+
 import {
+  defaultSort,
   getBlogTagsArr,
-  type Sort,
+  type OrderByOption,
   OrderByOptions,
+  type OrderOption,
   OrderOptions,
   useFilterSearchParams,
 } from "@/lib/blog";
@@ -33,9 +36,9 @@ function FilterMenu() {
   const tags = getBlogTagsArr();
 
   const [tagsFilter, setTagsFilter] = useState<string[]>(tagsInit);
-  const [sort, setSort] = useState<Sort>({
-    by: by ?? undefined,
-    order: order ?? undefined,
+  const [sort, setSort] = useState({
+    by: by ?? defaultSort.by,
+    order: order ?? defaultSort.order,
   });
   const [query, setQuery] = useState<string>(queryInit ?? "");
 
@@ -50,8 +53,8 @@ function FilterMenu() {
     tagsFilter.forEach((t) => params.append("tag", t));
 
     // add sort to params
-    sort.by && params.append("by", sort.by);
-    sort.order && params.append("order", sort.order);
+    params.append("by", sort.by);
+    params.append("order", sort.order);
 
     // add query to params
     query && params.append("query", query);
@@ -89,7 +92,7 @@ function FilterMenu() {
         </MenubarMenu>
 
         <MenubarMenu>
-          <MenubarTrigger>Sort by</MenubarTrigger>
+          <MenubarTrigger>Sort By</MenubarTrigger>
           <MenubarContent>
             {(
               Object.keys(OrderByOptions) as Array<keyof typeof OrderByOptions>
@@ -98,16 +101,12 @@ function FilterMenu() {
                 Object.keys(OrderOptions) as Array<keyof typeof OrderOptions>
               ).map((order, x) => (
                 <React.Fragment key={orderBy + order}>
-                  <MenubarItem
-                    onClick={() =>
-                      setSort({
-                        by: OrderByOptions[orderBy],
-                        order: OrderOptions[order],
-                      })
-                    }
-                  >
-                    {orderBy} {order}
-                  </MenubarItem>
+                  <MenuBarSortItem
+                    orderBy={orderBy}
+                    order={order}
+                    sort={sort}
+                    setSort={setSort}
+                  />
 
                   {(i !== Object.keys(OrderByOptions).length - 1 ||
                     x !== Object.keys(OrderOptions).length - 1) && (
@@ -148,6 +147,40 @@ function FilterMenu() {
         ))}
       </div>
     </div>
+  );
+}
+
+function MenuBarSortItem({
+  orderBy,
+  order,
+  sort,
+  setSort,
+}: {
+  orderBy: keyof typeof OrderByOptions;
+  order: keyof typeof OrderOptions;
+  sort: {
+    by: OrderByOption;
+    order: OrderOption;
+  };
+  setSort: (sortObj: { by: OrderByOption; order: OrderOption }) => void;
+}) {
+  const orderByOption = OrderByOptions[orderBy];
+  const orderOption = OrderOptions[order];
+  const isSelected = orderByOption === sort.by && orderOption === sort.order;
+
+  return (
+    <MenubarItem
+      onClick={() =>
+        setSort({
+          by: orderByOption,
+          order: orderOption,
+        })
+      }
+      className={cn(isSelected && "flex items-center gap-2 bg-accent")}
+    >
+      {isSelected && <BiCheck />}
+      {orderBy} {order}
+    </MenubarItem>
   );
 }
 

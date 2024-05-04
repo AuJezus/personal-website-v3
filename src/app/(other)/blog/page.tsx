@@ -1,6 +1,5 @@
 import FilterMenu from "@/components/filter";
-import { posts } from "@/content";
-import Link from "next/link";
+import PostList from "@/components/post-list";
 
 function BlogPage() {
   return (
@@ -15,14 +14,7 @@ function BlogPage() {
 
       <FilterMenu />
 
-      {/* <div>
-        {posts.map((post) => (
-          <Link key={post.slug} href={`blog/${post.slug}`}>
-            {post.title}
-          </Link>
-        ))}
-      </div> */}
-      <div></div>
+      <PostList />
     </main>
   );
 }
