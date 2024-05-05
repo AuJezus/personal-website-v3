@@ -23,7 +23,7 @@ import {
   useFilterSearchParams,
 } from "@/lib/blog";
 
-function FilterMenu() {
+function FilterMenu({ className }: { className?: string }) {
   const router = useRouter();
 
   // Get initial filter from search params
@@ -63,8 +63,8 @@ function FilterMenu() {
   }, [tagsFilter, sort, query, router]);
 
   return (
-    <div>
-      <Menubar className="text-x mb-2 h-fit w-fit">
+    <div className={className}>
+      <Menubar className="text-x mb-4 h-fit w-fit">
         <MenubarMenu>
           <MenubarTrigger>Filter by tag</MenubarTrigger>
           <MenubarContent>

@@ -10,10 +10,11 @@ const posts = {
     .object({
       slug: s.path(), // auto generate slug from file path
       title: s.string().max(99), // Zod primitive type
+      banner: s.image(),
       published: s.boolean().default(true),
       date: s.isodate(), // input Date-like string, output ISO Date string.
       tags: s.array(s.string()).optional(),
-      description: s.string().max(99).optional(), // excerpt of markdown content
+      description: s.string().max(99), // excerpt of markdown content
       metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
       content: s.mdx(), // transform markdown to html
     })
