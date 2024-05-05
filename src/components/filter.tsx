@@ -20,8 +20,8 @@ import {
   OrderByOptions,
   type OrderOption,
   OrderOptions,
-  useFilterSearchParams,
 } from "@/lib/blog";
+import useFilterSearchParams from "@/lib/useFilterSeachParams";
 
 function FilterMenu({ className }: { className?: string }) {
   const router = useRouter();
