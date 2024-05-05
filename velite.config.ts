@@ -18,7 +18,8 @@ const posts = {
       date: s.isodate(), // input Date-like string, output ISO Date string.
       tags: s.array(s.string()).optional(),
       description: s.string().max(99), // excerpt of markdown content
-      metadata: s.metadata(), // extract markdown reading-time, word-count, etc.
+      metadata: s.metadata(),
+      toc: s.toc({ ordered: true }), // extract markdown reading-time, word-count, etc.
       content: s.mdx(), // transform markdown to html
     })
     .transform((data) => ({

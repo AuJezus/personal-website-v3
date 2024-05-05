@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-pt-24">
       <body
         className={cn(
           "dark flex min-h-screen flex-col bg-background font-mono antialiased",

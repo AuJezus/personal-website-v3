@@ -6,11 +6,11 @@ import { siteConfig } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import TagList from "@/components/tag-list";
-import { BiArrowBack } from "react-icons/bi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import "@/styles/mdx.css";
 import { SortFunctions } from "@/lib/blog";
+import PostTOC from "@/components/post-toc";
 
 function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = posts.find((post) => post.slug === params.slug);
@@ -24,13 +24,15 @@ function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post || !post.published) return notFound();
 
   return (
-    <main className="flex-co mb-24 mt-12">
+    <main className="mb-24 mt-12 flex justify-center">
+      <div className="w-full"></div>
+
       <div className="prose prose-base mx-auto max-w-2xl dark:prose-invert">
         <Link
           href="/blog?by=date&order=desc"
           className="mb-4 flex items-center gap-2 text-sm"
         >
-          <BiArrowBack />
+          <FaArrowLeft />
           Back to all posts
         </Link>
 
@@ -57,7 +59,14 @@ function BlogPostPage({ params }: { params: { slug: string } }) {
           Thank you for reading! Wanna see more?
         </p>
 
-        <div className="flex justify-between text-sm">
+        <div className="grid grid-cols-2 text-sm">
+          <Link
+            href="/blog?by=date&order=desc"
+            className="col-span-2 mb-2 text-center text-sm"
+          >
+            Back to all posts
+          </Link>
+
           <Link
             className="mr-6 flex w-full items-center justify-start gap-4"
             href={`/blog/${previousPost?.slug}`}
@@ -80,6 +89,10 @@ function BlogPostPage({ params }: { params: { slug: string } }) {
             )}
           </Link>
         </div>
+      </div>
+
+      <div className="relative w-full">
+        <PostTOC post={post} />
       </div>
     </main>
   );
