@@ -23,7 +23,10 @@ class VeliteWebpackPlugin {
 /** @type {import("next").NextConfig} */
 const config = {
   webpack: (config) => {
+    // This code with eslint errors is from the docs, so it's okay.
+    // eslint-disable-next-line
     config.plugins.push(new VeliteWebpackPlugin());
+    // eslint-disable-next-line
     return config;
   },
 };

@@ -12,8 +12,8 @@ function HeroSection() {
   const [isGlitching, setIsGlitching] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isHeroInView, setIsHeroInView] = useAtom(isHeroInViewAtom);
-  const [isHeroInViewHalf, setIsHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
+  const [, setIsHeroInView] = useAtom(isHeroInViewAtom);
+  const [, setIsHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
 
   const addGlitchEffect = useCallback(() => {
     setIsGlitching(true);
@@ -77,7 +77,7 @@ function HeroSection() {
         className={`hero-img absolute -z-30 h-full w-full ${isGlitching ? "noise" : ""}`}
       ></div>
       <div className="line-effect absolute -z-20 h-full w-full opacity-20"></div>
-      <div className="bg-background/40 absolute right-0 top-0 -z-10 h-full w-full"></div>
+      <div className="absolute right-0 top-0 -z-10 h-full w-full bg-background/40"></div>
 
       {/* Content */}
       <div className="relative flex h-screen flex-col items-center justify-center gap-4">

@@ -1,5 +1,6 @@
 import FilterMenu from "@/components/filter";
 import PostList from "@/components/post-list";
+import { Suspense } from "react";
 
 function BlogPage() {
   return (
@@ -22,9 +23,13 @@ function BlogPage() {
         of coding together!
       </p>
 
-      <FilterMenu className="mb-4" />
+      <Suspense>
+        <FilterMenu className="mb-4" />
+      </Suspense>
 
-      <PostList />
+      <Suspense>
+        <PostList />
+      </Suspense>
     </main>
   );
 }

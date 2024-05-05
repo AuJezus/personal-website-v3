@@ -12,6 +12,12 @@ import "@/styles/mdx.css";
 import { SortFunctions } from "@/lib/blog";
 import PostTOC from "@/components/post-toc";
 
+export async function generateStaticParams() {
+  return posts.map((p) => ({
+    slug: p.slug,
+  }));
+}
+
 function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = posts.find((post) => post.slug === params.slug);
   const sortedPosts = posts.sort(SortFunctions.date.desc);
