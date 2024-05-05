@@ -1,17 +1,25 @@
 "use client";
 
 import { posts } from "@/content";
-import { SortFunctions, defaultSort, useFilterSearchParams } from "@/lib/blog";
+import { SortFunctions, defaultSort } from "@/lib/blog";
+import { siteConfig } from "@/lib/site";
+import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
+import TagList from "./tag-list";
+import useFilterSearchParams from "@/lib/useFilterSeachParams";
 
 function PostList() {
   const { tags, by, order, query } = useFilterSearchParams();
 
+  const filteredForPrivate = posts.filter((p) => p.published);
+
   const filteredForTags =
-    tags.length > 0
-      ? posts.filter((p) => tags.every((tag) => p.tags?.includes(tag)))
-      : posts;
+    filteredForPrivate.length > 0
+      ? filteredForPrivate.filter((p) =>
+          tags.every((tag) => p.tags?.includes(tag)),
+        )
+      : filteredForPrivate;
 
   const filteredForQuery = query
     ? filteredForTags.filter((p) =>
@@ -36,21 +44,20 @@ function PostList() {
             src={post.banner}
             alt={`"${post.title}" banner image`}
           />
+
           <div className="ml-4 flex w-full flex-col gap-1 pl-4 transition-colors group-hover:border-primary/60">
-            <p className="text-muted-foreground">2023-02-31</p>
+            <div className="mr-8 flex items-center justify-between text-muted-foreground">
+              <p>{dayjs(post.date).format(siteConfig.dateFormat)}</p>
+
+              <p className="text-sm">{post.metadata.readingTime} mins</p>
+            </div>
+
             <p className="line-clamp-2 text-xl font-semibold">{post.title}</p>
+
             <p className="text-muted-foreground">{post.description}</p>
+
             {post.tags?.length && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {post.tags?.map((tag) => (
-                  <div
-                    key={post.title + tag}
-                    className="text-nowrap rounded-sm border px-1.5 py-0.5 text-sm text-muted-foreground"
-                  >
-                    {tag}
-                  </div>
-                ))}
-              </div>
+              <TagList title={post.title} tags={post.tags} className="mt-2" />
             )}
           </div>
         </Link>

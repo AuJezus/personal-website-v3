@@ -1,3 +1,3 @@
-export const siteConfig = {};
-
-export type SiteConfig = typeof siteConfig;
+export const siteConfig = {
+  dateFormat: "YYYY-MM-DD",
+};
