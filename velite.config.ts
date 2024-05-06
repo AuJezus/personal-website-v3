@@ -21,6 +21,7 @@ const posts = {
       metadata: s.metadata(),
       toc: s.toc({ ordered: true }), // extract markdown reading-time, word-count, etc.
       content: s.mdx(), // transform markdown to html
+      pinned: s.boolean().optional(),
     })
     .transform((data) => ({
       ...data,
