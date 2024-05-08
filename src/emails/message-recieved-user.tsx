@@ -1,5 +1,6 @@
 import { Container, Link, Text } from "@react-email/components";
 import Layout from "./layout";
+import { links } from "@/lib/site";
 
 function MessageRecievedUserEmail(props: {
   name: string;
@@ -62,11 +63,9 @@ function MessageRecievedUserEmail(props: {
                 </span>
 
                 <span className="text-foreground">
-                  <Link href="https://twitter.com/AuJezus">X</Link>,{" "}
-                  <Link href="https://www.linkedin.com/in/augustas-vaivada-2a9ba326a/">
-                    LinkedIn
-                  </Link>
-                  , <Link href="https://github.com/AuJezus">Github</Link>.
+                  <Link href={links.twitter}>Twitter</Link>,{" "}
+                  <Link href={links.linkedIn}>LinkedIn</Link>,{" "}
+                  <Link href={links.github}>Github</Link>.
                 </span>
               </Text>
             </li>

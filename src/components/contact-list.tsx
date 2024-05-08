@@ -1,3 +1,4 @@
+import { links } from "@/lib/site";
 import {
   BiLogoTwitter,
   BiLogoLinkedin,
@@ -11,7 +12,7 @@ function Contact(props: { children: React.ReactNode; href: string }) {
     <a
       href={props.href}
       target="_blank"
-      className={`text-foreground/80 hover:text-foreground flex items-center justify-center text-3xl transition-all hover:scale-110`}
+      className={`flex items-center justify-center text-3xl text-foreground/80 transition-all hover:scale-110 hover:text-foreground`}
     >
       {props.children}
     </a>
@@ -21,23 +22,23 @@ function Contact(props: { children: React.ReactNode; href: string }) {
 function ConctactList() {
   return (
     <div className="flex flex-wrap justify-center gap-x-10 gap-y-3">
-      <Contact href="https://twitter.com/AuJezus">
+      <Contact href={links.twitter}>
         <BiLogoTwitter />
       </Contact>
 
-      <Contact href="https://www.linkedin.com/in/augustas-vaivada-2a9ba326a/">
+      <Contact href={links.linkedIn}>
         <BiLogoLinkedin />
       </Contact>
 
-      <Contact href="https://www.instagram.com/augustas_wa/">
+      <Contact href={links.instagram}>
         <BiLogoInstagram />
       </Contact>
 
-      <Contact href="https://github.com/AuJezus">
+      <Contact href={links.github}>
         <BiLogoGithub />
       </Contact>
 
-      <Contact href="mailto:augustasv16@gmail.com">
+      <Contact href={links.email}>
         <BiEnvelope />
       </Contact>
     </div>

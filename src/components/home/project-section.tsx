@@ -1,5 +1,6 @@
 import Project from "@/components/home/project";
 import { projects } from "@/content";
+import { links } from "@/lib/site";
 import React from "react";
 import { BiLogoGithub } from "react-icons/bi";
 
@@ -27,7 +28,7 @@ function ProjectSection() {
         ))}
 
         <a
-          href="https://github.com/AuJezus?tab=repositories"
+          href={links.githubRepositories}
           target="_blank"
           className="flex items-center gap-2 hover:underline"
         >

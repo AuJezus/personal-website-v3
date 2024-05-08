@@ -6,6 +6,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { links } from "@/lib/site";
 
 async function MyStatus() {
   const { isOnline, duration = 0, message } = await getMyStatus();
@@ -29,7 +30,7 @@ async function MyStatus() {
       <Tooltip>
         <TooltipTrigger asChild>
           <a
-            href="https://wakatime.com/@AuJezus"
+            href={links.wakatime}
             target="_blank"
             className="flex items-center gap-2 text-sm"
           >
