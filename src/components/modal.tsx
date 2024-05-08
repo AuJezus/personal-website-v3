@@ -34,7 +34,6 @@ export function Modal({
       )}
       onClose={onDismiss}
     >
-      <div className="max-h-[90vh] overflow-y-auto">{children}</div>
       <BiX
         onClick={onDismiss}
         className="absolute right-0 top-0 overflow-auto text-4xl text-destructive"
@@ -42,6 +41,8 @@ export function Modal({
       <Button asChild variant="link" className="absolute left-0 top-0">
         <a href={pathname}>View full page</a>
       </Button>
+
+      <div className="max-h-[90vh] overflow-y-auto">{children}</div>
     </dialog>,
     document.getElementById("modal-root")!,
   );

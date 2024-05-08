@@ -12,7 +12,7 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
     >
       <div className="absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent from-0% to-background to-70%"></div>
 
-      <Link href={`/project/${project.slug}`}>
+      <Link href={`/project/${project.slug}`} scroll={false}>
         <Tilt
           tiltMaxAngleX={10}
           tiltMaxAngleY={10}
