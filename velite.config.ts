@@ -29,6 +29,26 @@ const posts = {
     })),
 };
 
+const projects = {
+  name: "Project", // collection type name
+  pattern: "projects/**/*.mdx", // content files glob pattern
+  schema: s
+    .object({
+      slug: s.path(), // auto generate slug from file path
+      title: s.string().max(99), // Zod primitive type
+      image: s.image(),
+      date: s.isodate(), // input Date-like string, output ISO Date string.
+      tags: s.array(s.string()).optional(),
+      description: s.string().max(99), // excerpt of markdown content
+      toc: s.toc({ ordered: true }),
+      content: s.mdx(), // transform markdown to html
+    })
+    .transform((data) => ({
+      ...data,
+      slug: data.slug.split("/").slice(1).join("/"),
+    })),
+};
+
 export default defineConfig({
   root: "content",
   output: {
@@ -38,7 +58,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { posts },
+  collections: { posts, projects },
   mdx: {
     rehypePlugins: [
       rehypeSlug,

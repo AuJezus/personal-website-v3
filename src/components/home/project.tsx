@@ -1,17 +1,18 @@
 "use client";
 
+import { type Project } from "@/content";
 import Image from "next/image";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 
-function Project(props: { left?: boolean }) {
+function Project({ left, project }: { left?: boolean; project: Project }) {
   return (
     <div
-      className={`${props.left ? "flex-row-reverse self-end" : "self-start"} hover:bg-primary/15 bg-border/20 group relative z-0 flex max-w-4xl items-center gap-12 transition-all duration-500`}
+      className={`${left ? "flex-row-reverse self-end" : "self-start"} group relative z-0 flex max-w-4xl items-center gap-12 bg-border/20 transition-all duration-500 hover:bg-primary/15`}
     >
-      <div className="to-background absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent from-0% to-70%"></div>
+      <div className="absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent from-0% to-background to-70%"></div>
 
-      <Link href="lol">
+      <Link href={`/project/${project.slug}`}>
         <Tilt
           tiltMaxAngleX={10}
           tiltMaxAngleY={10}
@@ -19,20 +20,17 @@ function Project(props: { left?: boolean }) {
           perspective={1000}
         >
           <Image
-            className="hover:border-primary min-w-0 rounded-lg border-2 p-2 transition-colors"
-            src={"/aujezus-play.webp"}
+            className="max-h-[300px] max-w-[500px] rounded-lg border-2 object-cover p-2 transition-colors hover:border-primary"
+            src={project.image}
             alt="Image"
-            width={1919}
-            height={920}
           />
         </Tilt>
       </Link>
 
       <div className="w-full">
-        <p className="mb-4 text-2xl">aujezus-play</p>
-        <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-500">
-          A simple music listening app, that fetches songs from your favourite
-          youtube playlist.
+        <p className="mb-4 text-2xl font-semibold">{project.title}</p>
+        <p className="text-muted-foreground transition-colors duration-500 group-hover:text-foreground">
+          {project.description}
         </p>
       </div>
     </div>

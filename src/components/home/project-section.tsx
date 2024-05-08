@@ -1,14 +1,16 @@
 import Project from "@/components/home/project";
+import { projects } from "@/content";
+import React from "react";
 import { BiLogoGithub } from "react-icons/bi";
 
 function ProjectSection() {
   return (
     <section id="projects" className="mx-auto mb-44 max-w-[1200px]">
-      <div className="text-muted-foreground mb-10 flex items-baseline gap-4">
+      <div className="mb-10 flex items-baseline gap-4 text-muted-foreground">
         <span>
           <span className="text-primary">~</span> W:\AuJezus{">"}
         </span>
-        <h2 className="text-primary text-lg">
+        <h2 className="text-lg text-primary">
           projects<span className="animate-blink">_</span>
         </h2>
       </div>
@@ -17,18 +19,13 @@ function ProjectSection() {
       </h3>
 
       <div className="flex flex-col items-center gap-16 ">
-        <Project />
-        <div className="bg-secondary h-px w-96"></div>
-        <Project left />
-        <div className="bg-secondary h-px w-96"></div>
-        <Project />
-        <div className="bg-secondary h-px w-96"></div>
-        <Project left />
-        <div className="bg-secondary h-px w-96"></div>
-        <Project />
-        <div className="bg-secondary h-px w-96"></div>
-        <Project left />
-        <div className="bg-secondary h-px w-96"></div>
+        {projects.map((project, i) => (
+          <React.Fragment key={project.slug}>
+            <Project left={i % 2 !== 0} project={project} />
+            <div className="h-px w-96 bg-secondary"></div>
+          </React.Fragment>
+        ))}
+
         <a
           href="https://github.com/AuJezus?tab=repositories"
           target="_blank"

@@ -1,19 +1,18 @@
 "use client";
 
-import { type Post } from "@/content";
 import useHeadingObserver from "@/lib/useHeadingObserver";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-function PostTOC({ post }: { post: Post }) {
+function TOC({ title, toc }: { title: string; toc: TocEntry[] }) {
   const activeId = useHeadingObserver();
 
   return (
     <div className="sticky top-32 ml-4 mt-12 max-w-md transform border-l-2 py-2 pl-4 transition-colors hover:border-primary">
-      <p className="mb-2 font-semibold">{post.title}</p>
+      <p className="mb-2 font-semibold">{title}</p>
 
       <ol className="flex flex-col gap-2 text-muted-foreground">
-        {post.toc.map((entry) => (
+        {toc.map((entry) => (
           <TOCList activeId={activeId} key={entry.url} entry={entry} />
         ))}
       </ol>
@@ -68,4 +67,4 @@ function TOCList({
   );
 }
 
-export default PostTOC;
+export default TOC;
