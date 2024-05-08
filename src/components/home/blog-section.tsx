@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
+import TerminalHeading from "../terminalHeading";
 
 function BlogSection() {
   const sortedPosts = posts.sort(SortFunctions.date.desc);
@@ -14,14 +15,7 @@ function BlogSection() {
 
   return (
     <section className="mx-auto mb-28 max-w-[1200px]">
-      <div className="mb-10 flex items-baseline gap-4 text-muted-foreground">
-        <span>
-          <span className="text-primary">~</span> W:\AuJezus{">"}
-        </span>
-        <h2 className="text-lg text-primary">
-          blog<span className="animate-blink">_</span>
-        </h2>
-      </div>
+      <TerminalHeading>blog</TerminalHeading>
 
       <h3 className="mb-12 text-4xl font-semibold">Check out my blog posts!</h3>
 

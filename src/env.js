@@ -12,7 +12,6 @@ export const env = createEnv({
       .default("development"),
     LAST_FM_API_KEY: z.string(),
     WAKATIME_API_KEY: z.string(),
-    GMAIL_USER: z.string(),
     GMAIL_PASS: z.string(),
   },
 
@@ -22,7 +21,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_GMAIL_USER: z.string(),
   },
 
   /**
@@ -33,7 +32,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     LAST_FM_API_KEY: process.env.LAST_FM_API_KEY,
     WAKATIME_API_KEY: process.env.WAKATIME_API_KEY,
-    GMAIL_USER: process.env.GMAIL_USER,
+    NEXT_PUBLIC_GMAIL_USER: process.env.NEXT_PUBLIC_GMAIL_USER,
     GMAIL_PASS: process.env.GMAIL_PASS,
   },
   /**

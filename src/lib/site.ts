@@ -10,7 +10,7 @@ export const links = {
   instagram: "https://www.instagram.com/augustas_wa",
   github: "https://github.com/AuJezus",
   githubRepositories: "https://github.com/AuJezus?tab=repositories",
-  email: `mailto:${env.GMAIL_USER}`,
+  email: `mailto:${env.NEXT_PUBLIC_GMAIL_USER}`,
   resumeDownload:
     '"https://drive.google.com/drive/folders/19NwJcutDY-WrdWaASwjXAvVBW4FHzWHU?usp=sharing',
   wakatime: "https://wakatime.com/@AuJezus",

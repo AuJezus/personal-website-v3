@@ -26,14 +26,14 @@ export async function sendMessageRecievedEmails(
     );
 
     const userEmailOptions = {
-      from: env.GMAIL_USER,
+      from: env.NEXT_PUBLIC_GMAIL_USER,
       to: email,
       subject: "Thank you for leaving a message!",
       html: userEmailHtml,
     };
     const myEmailOptions = {
-      from: env.GMAIL_USER,
-      to: env.GMAIL_USER,
+      from: env.NEXT_PUBLIC_GMAIL_USER,
+      to: env.NEXT_PUBLIC_GMAIL_USER,
       subject: `You just recieved a message from ${name}`,
       headers: {
         "x-priority": "1",

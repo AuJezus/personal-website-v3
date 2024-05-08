@@ -5,18 +5,12 @@ import { BiCircle, BiMap } from "react-icons/bi";
 import AboutParagraph from "./about-paragraph";
 import GlowEffect from "../glow-effect";
 import { links } from "@/lib/site";
+import TerminalHeading from "../terminalHeading";
 
 function AboutSection() {
   return (
     <section id="about" className="mx-auto mb-44 max-w-[1200px]">
-      <div className="mb-10 flex items-baseline gap-4 text-muted-foreground">
-        <span>
-          <span className="text-primary">~</span> W:\AuJezus{">"}
-        </span>
-        <h2 className="text-lg text-primary">
-          about-me<span className="animate-blink">_</span>
-        </h2>
-      </div>
+      <TerminalHeading>about-me</TerminalHeading>
 
       <GlowEffect className="glow-primary">
         <div className=" flex flex-col flex-wrap items-center justify-center gap-6 rounded-2xl border-4 bg-secondary/10 p-10 shadow-lg shadow-black/80 backdrop-blur-md glow:border-glow glow:bg-glow/[.15] md:flex-row md:items-start md:justify-between">

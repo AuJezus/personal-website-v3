@@ -3,18 +3,12 @@ import { projects } from "@/content";
 import { links } from "@/lib/site";
 import React from "react";
 import { BiLogoGithub } from "react-icons/bi";
+import TerminalHeading from "../terminalHeading";
 
 function ProjectSection() {
   return (
     <section id="projects" className="mx-auto mb-44 max-w-[1200px]">
-      <div className="mb-10 flex items-baseline gap-4 text-muted-foreground">
-        <span>
-          <span className="text-primary">~</span> W:\AuJezus{">"}
-        </span>
-        <h2 className="text-lg text-primary">
-          projects<span className="animate-blink">_</span>
-        </h2>
-      </div>
+      <TerminalHeading>projects</TerminalHeading>
       <h3 className="mb-16 text-center text-5xl font-semibold capitalize">
         Discover my work
       </h3>

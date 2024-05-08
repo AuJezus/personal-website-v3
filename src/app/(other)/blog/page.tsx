@@ -1,18 +1,14 @@
 import FilterMenu from "@/components/filter";
 import PostList from "@/components/post-list";
+import TerminalHeading from "@/components/terminalHeading";
 import { Suspense } from "react";
 
 function BlogPage() {
   return (
     <main className="mx-auto mb-28 mt-12 max-w-[1200px]">
-      <div className="mb-6 flex items-baseline gap-4 text-muted-foreground">
-        <span>
-          <span className="text-primary">~</span> W:\AuJezus{">"}
-        </span>
-        <h1 className="text-lg text-primary">
-          blog<span className="animate-blink">_</span>
-        </h1>
-      </div>
+      <TerminalHeading level="h1" className="mb-6">
+        blog
+      </TerminalHeading>
 
       <h2 className="mb-4 text-3xl font-semibold">All things web dev</h2>
 

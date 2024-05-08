@@ -25,6 +25,7 @@ import {
 } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
 import SkillSlide from "./skill-slide";
+import TerminalHeading from "../terminalHeading";
 
 export interface Skill {
   icon: React.ReactNode;
@@ -37,14 +38,9 @@ export interface Skill {
 function SkillSection() {
   return (
     <section id="skills" className="mb-44">
-      <div className="mx-auto mb-10 flex max-w-[1200px] items-baseline gap-4 text-muted-foreground">
-        <span>
-          <span className="text-primary">~</span> W:\AuJezus{">"}
-        </span>
-        <h2 className="text-lg text-primary">
-          skills<span className="animate-blink">_</span>
-        </h2>
-      </div>
+      <TerminalHeading className="mx-auto max-w-[1200px]">
+        skills
+      </TerminalHeading>
 
       <div className="w-full border-y">
         <div className="mx-auto max-w-[1200px] py-8">
