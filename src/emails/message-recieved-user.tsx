@@ -14,9 +14,9 @@ function MessageRecievedUserEmail(props: {
 
   return (
     <Layout previewText={`Hello ${formattedName}`}>
-      <Container className="border-border mx-auto max-w-2xl border-y-4 border-solid px-2 py-2">
+      <Container className="mx-auto max-w-2xl border-y-4 border-solid border-border px-2 py-2">
         <Container className="mx-auto max-w-lg">
-          <h1 className="text-foreground my-4 text-2xl font-bold capitalize">
+          <h1 className="my-4 text-2xl font-bold capitalize text-foreground">
             Hello {formattedName},
           </h1>
           <Text className="text-foreground">
@@ -25,7 +25,7 @@ function MessageRecievedUserEmail(props: {
             thoughtful response, here are a few ways to stay engaged:
           </Text>
 
-          <ul className="text-primary-foreground pl-4">
+          <ul className="pl-4 text-primary-foreground">
             <li>
               <Text>
                 <strong className="text-primary">Explore My Blog:</strong>
@@ -36,7 +36,7 @@ function MessageRecievedUserEmail(props: {
                 </span>
               </Text>
             </li>
-            <li>
+            {/* <li>
               <Text>
                 <strong className="text-primary">Join the Newsletter:</strong>
                 <span className="text-foreground">
@@ -49,7 +49,7 @@ function MessageRecievedUserEmail(props: {
                   .
                 </span>
               </Text>
-            </li>
+            </li> */}
             <li>
               <Text>
                 <strong className="text-primary">
@@ -72,7 +72,7 @@ function MessageRecievedUserEmail(props: {
             </li>
           </ul>
 
-          <Text className="text-foreground mt-10">
+          <Text className="mt-10 text-foreground">
             Rest assured, I&apos;ll be in touch with you shortly. Your patience
             is greatly appreciated.
           </Text>
