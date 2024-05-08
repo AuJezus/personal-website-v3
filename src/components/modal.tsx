@@ -1,16 +1,18 @@
 "use client";
 
 import { type ElementRef, useEffect, useRef, type HTMLAttributes } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { BiX } from "react-icons/bi";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 export function Modal({
   children,
   className,
 }: HTMLAttributes<HTMLDialogElement>) {
   const router = useRouter();
+  const pathname = usePathname();
   const dialogRef = useRef<ElementRef<"dialog">>(null);
 
   useEffect(() => {
@@ -37,6 +39,9 @@ export function Modal({
         onClick={onDismiss}
         className="absolute right-0 top-0 overflow-auto text-4xl text-destructive"
       />
+      <Button asChild variant="link" className="absolute left-0 top-0">
+        <a href={pathname}>View full page</a>
+      </Button>
     </dialog>,
     document.getElementById("modal-root")!,
   );

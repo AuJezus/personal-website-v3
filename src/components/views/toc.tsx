@@ -8,7 +8,7 @@ function TOC({ title, toc }: { title: string; toc: TocEntry[] }) {
   const activeId = useHeadingObserver();
 
   return (
-    <div className="sticky top-32 ml-4 mt-12 max-w-md transform border-l-2 py-2 pl-4 transition-colors hover:border-primary">
+    <div className="sticky top-32 ml-4 mt-12 max-w-sm transform border-l-2 py-2 pl-4 text-sm transition-colors hover:border-primary">
       <p className="mb-2 font-semibold">{title}</p>
 
       <ol className="flex flex-col gap-2 text-muted-foreground">
