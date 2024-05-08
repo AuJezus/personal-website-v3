@@ -3,7 +3,7 @@ import { projects } from "@/content";
 import { links } from "@/lib/site";
 import React from "react";
 import { BiLogoGithub } from "react-icons/bi";
-import TerminalHeading from "../terminalHeading";
+import TerminalHeading from "../terminal-heading";
 
 function ProjectSection() {
   return (

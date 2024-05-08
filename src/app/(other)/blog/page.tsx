@@ -1,6 +1,6 @@
 import FilterMenu from "@/components/filter";
 import PostList from "@/components/post-list";
-import TerminalHeading from "@/components/terminalHeading";
+import TerminalHeading from "@/components/terminal-heading";
 import { Suspense } from "react";
 
 function BlogPage() {

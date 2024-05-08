@@ -5,7 +5,7 @@ import { BiCircle, BiMap } from "react-icons/bi";
 import AboutParagraph from "./about-paragraph";
 import GlowEffect from "../glow-effect";
 import { links } from "@/lib/site";
-import TerminalHeading from "../terminalHeading";
+import TerminalHeading from "../terminal-heading";
 
 function AboutSection() {
   return (

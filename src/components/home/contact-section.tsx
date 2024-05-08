@@ -1,4 +1,4 @@
-import TerminalHeading from "../terminalHeading";
+import TerminalHeading from "../terminal-heading";
 import ContactForm from "./contact-form";
 
 function ContactSection() {

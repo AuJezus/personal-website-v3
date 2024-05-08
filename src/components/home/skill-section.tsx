@@ -25,7 +25,7 @@ import {
 } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
 import SkillSlide from "./skill-slide";
-import TerminalHeading from "../terminalHeading";
+import TerminalHeading from "../terminal-heading";
 
 export interface Skill {
   icon: React.ReactNode;
