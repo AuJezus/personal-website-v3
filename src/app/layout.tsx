@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-pt-24">
       <body
         className={cn(
-          "dark flex min-h-screen flex-col bg-background font-mono antialiased",
+          "dark flex min-h-screen flex-col bg-background font-mono text-foreground antialiased",
           robotoMono.variable,
         )}
       >
