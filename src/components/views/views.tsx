@@ -23,7 +23,11 @@ export function ProjectView({ project }: { project: Project }) {
         <TagList className="mb-2" title={project.title} tags={project.tags} />
       )}
 
-      <Image src={project.image} alt={`"${project.title}" banner image`} />
+      <Image
+        src={project.image}
+        alt={`"${project.title}" banner image`}
+        priority
+      />
 
       <MDXContent code={project.content} />
     </ProseWrapper>
@@ -60,7 +64,7 @@ export function PostView({ post }: { post: Post }) {
         <TagList className="mb-2" title={post.title} tags={post.tags} />
       )}
 
-      <Image src={post.banner} alt={`"${post.title}" banner image`} />
+      <Image src={post.banner} alt={`"${post.title}" banner image`} priority />
 
       <MDXContent code={post.content} />
 
