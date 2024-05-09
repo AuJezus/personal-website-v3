@@ -1,4 +1,5 @@
 import { type NextRequest } from "next/server";
+
 import { ImageResponse } from "next/og";
 import { links } from "@/lib/site";
 
@@ -29,6 +30,11 @@ export async function GET(req: NextRequest) {
       });
 
     if (!title) return new Response("No title provided", { status: 500 });
+
+    if (description && description.length > 150)
+      return new Response("Description param too long (max 150 character)", {
+        status: 500,
+      });
 
     // Limit title
     const heading =

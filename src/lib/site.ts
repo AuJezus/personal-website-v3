@@ -1,6 +1,8 @@
 import { env } from "@/env";
 
 export const siteConfig = {
+  author: "Augustas Vaivada",
+  url: "https://aujezus.com",
   dateFormat: "YYYY-MM-DD",
 };
 

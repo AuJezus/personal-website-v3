@@ -1,7 +1,15 @@
+import { type Metadata } from "next";
+
 import FilterMenu from "@/components/filter";
 import PostList from "@/components/post-list";
 import TerminalHeading from "@/components/terminal-heading";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "AuJezus blog",
+  description:
+    "Here, I'll be sharing all sorts of goodies about web development, from handy tips to passionate rants. Let's dive into the exciting world of coding together!",
+};
 
 function BlogPage() {
   return (

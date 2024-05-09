@@ -1,3 +1,5 @@
+import { type Viewport } from "next";
+
 import Footer from "@/components/footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -6,6 +8,7 @@ import { Provider } from "jotai";
 import { Toaster } from "sonner";
 
 import { Roboto_Mono } from "next/font/google";
+import { siteConfig } from "@/lib/site";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -13,9 +16,13 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata = {
-  title: "Aujezus",
+  title: siteConfig.author,
   description: "Portfolio website of Augustas Vaivada (Aujezus)",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+};
+
+export const viewport: Viewport = {
+  themeColor: "#030712",
 };
 
 export default function RootLayout({
