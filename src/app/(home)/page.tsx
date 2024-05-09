@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "I'm a Full-stack developer from lithuania and this is my portfolio/blog website",
 };
 
-export function HomePage() {
+function HomePage() {
   return (
     <main>
       <HeroSection />
