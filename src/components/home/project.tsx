@@ -36,8 +36,10 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
       </Link>
 
       <div>
-        <p className="mb-4 text-2xl font-semibold">{project.title}</p>
-        <p className="text-muted-foreground transition-colors duration-500 group-hover:text-foreground">
+        <p className="mb-4 text-lg font-semibold sm:text-2xl">
+          {project.title}
+        </p>
+        <p className="text-sm text-muted-foreground transition-colors duration-500 group-hover:text-foreground sm:text-base">
           {project.description}
         </p>
       </div>

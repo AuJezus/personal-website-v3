@@ -71,7 +71,7 @@ function HeroSection() {
   }, [containerRef, setIsHeroInView, setIsHeroInViewHalf]);
 
   return (
-    <div ref={containerRef} className="relative mb-28 h-screen">
+    <div ref={containerRef} className="relative mb-16 h-screen sm:mb-28">
       {/* Background effects */}
       <NoiseSvg />
       <div
