@@ -20,13 +20,13 @@ function HomePage() {
 
       <ProjectSection />
 
-      <AboutSection />
+      {/* <AboutSection />
 
       <SkillSection />
 
       <BlogSection />
 
-      <ContactSection />
+      <ContactSection /> */}
     </main>
   );
 }

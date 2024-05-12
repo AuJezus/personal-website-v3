@@ -1,6 +1,7 @@
 "use client";
 
 import { type Project } from "@/content";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
@@ -8,11 +9,18 @@ import Tilt from "react-parallax-tilt";
 function Project({ left, project }: { left?: boolean; project: Project }) {
   return (
     <div
-      className={`${left ? "flex-row-reverse self-end" : "self-start"} group relative z-0 flex max-w-4xl items-center gap-12 bg-border/20 transition-all duration-500 hover:bg-primary/15`}
+      className={cn(
+        "group relative z-0 flex max-w-xl flex-col-reverse items-center gap-8 bg-border/20 transition-all duration-500 hover:bg-primary/15 lg:max-w-4xl lg:flex-row lg:gap-12 lg:self-start",
+        left && "lg:flex-row-reverse lg:self-end",
+      )}
     >
       <div className="absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent from-0% to-background to-70%"></div>
 
-      <Link href={`/project/${project.slug}`} scroll={false}>
+      <Link
+        className="w-full lg:w-auto"
+        href={`/project/${project.slug}`}
+        scroll={false}
+      >
         <Tilt
           tiltMaxAngleX={10}
           tiltMaxAngleY={10}
@@ -20,14 +28,14 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
           perspective={1000}
         >
           <Image
-            className="max-h-[300px] max-w-[500px] rounded-lg border-2 object-cover p-2 transition-colors hover:border-primary"
+            className="w-full rounded-lg border-2 object-cover p-2 transition-colors hover:border-primary lg:max-h-[300px] lg:w-screen lg:max-w-[500px]"
             src={project.image}
             alt="Image"
           />
         </Tilt>
       </Link>
 
-      <div className="w-full">
+      <div>
         <p className="mb-4 text-2xl font-semibold">{project.title}</p>
         <p className="text-muted-foreground transition-colors duration-500 group-hover:text-foreground">
           {project.description}
