@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useAtom } from "jotai";
 import { isHeroInViewAtom } from "../home/hero-section";
 import { isHeroInViewHalfAtom } from "../home/hero-section";
-import { NavColumn, NavLinks, NavLogo, links } from "./nav-components";
+import { NavColumn, NavLinks, NavLogo } from "./nav-components";
 import { useMediaQuery } from "@/lib/hooks/use-media-query";
 import {
   Drawer,
@@ -46,8 +46,15 @@ export function NavHome(props: { children: React.ReactNode }) {
   return (
     <nav className="fixed top-0 z-20">
       <Drawer direction="right">
-        <DrawerTrigger className="flex w-screen justify-end p-4">
-          <BiMenu className="text-5xl" />
+        <DrawerTrigger className="flex w-screen justify-end p-2 sm:p-4">
+          <div
+            className={cn(
+              "rounded-full border-2 border-transparent p-1 transition-all",
+              !isHeroInView && "border-border bg-background p-1",
+            )}
+          >
+            <BiMenu className="text-4xl sm:text-5xl" />
+          </div>
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader className="!text-center">
