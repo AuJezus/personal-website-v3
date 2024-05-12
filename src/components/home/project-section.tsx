@@ -4,13 +4,11 @@ import { links } from "@/lib/site";
 import React from "react";
 import { BiLogoGithub } from "react-icons/bi";
 import TerminalHeading from "../terminal-heading";
+import Section from "./section";
 
 function ProjectSection() {
   return (
-    <section
-      id="projects"
-      className="mx-auto mb-20 max-w-[1200px] px-4 sm:mb-44 xl:p-0"
-    >
+    <Section id="projects">
       <TerminalHeading>projects</TerminalHeading>
       <h3 className="mb-16 text-center text-3xl font-semibold capitalize sm:text-5xl">
         Discover my work
@@ -32,7 +30,7 @@ function ProjectSection() {
           View all projects <BiLogoGithub />
         </a>
       </div>
-    </section>
+    </Section>
   );
 }
 

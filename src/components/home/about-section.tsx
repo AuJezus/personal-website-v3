@@ -6,13 +6,11 @@ import AboutParagraph from "./about-paragraph";
 import GlowEffect from "../glow-effect";
 import { links } from "@/lib/site";
 import TerminalHeading from "../terminal-heading";
+import Section from "./section";
 
 function AboutSection() {
   return (
-    <section
-      id="about"
-      className="mx-auto mb-20 max-w-[1200px] px-4 sm:mb-44 xl:p-0"
-    >
+    <Section id="about">
       <TerminalHeading>about-me</TerminalHeading>
 
       <GlowEffect className="glow-primary">
@@ -49,7 +47,7 @@ function AboutSection() {
           />
         </div>
       </GlowEffect>
-    </section>
+    </Section>
   );
 }
 
