@@ -31,33 +31,50 @@ export function NavLogo({
 }: HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("w-full text-2xl transition-all duration-500", className)}
+      className={cn(
+        "text h-full w-full text-nowrap text-5xl font-semibold transition-all duration-500 lg:text-2xl",
+        className,
+      )}
       {...props}
     >
-      MANO LOGO
+      AUJEZUS
     </p>
   );
 }
 
 export function NavLinks({
   isBorder = false,
-  links,
+  isDesktop = true,
 }: {
   isBorder?: boolean;
-  links: { name: string; url: string }[];
+  isDesktop?: boolean;
 }) {
+  if (isDesktop)
+    return (
+      <ul
+        className={cn(
+          "flex w-fit justify-center gap-6 rounded-md border-2 border-transparent px-3 py-2 transition-all",
+          isBorder && "border-secondary bg-background",
+        )}
+      >
+        {links.map((link) => (
+          <li className="relative text-nowrap indent-2" key={link.name}>
+            <Link className="group" href={link.url}>
+              {link.name}
+              <div className="absolute bottom-[17%] h-[1.5px] w-[8px] bg-foreground transition-all duration-300 group-hover:w-full "></div>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+
   return (
-    <ul
-      className={cn(
-        "flex w-fit justify-center gap-6 rounded-md border-2 border-transparent px-3 py-2 transition-all",
-        isBorder && "border-secondary bg-background",
-      )}
-    >
+    <ul className="flex flex-col gap-8">
       {links.map((link) => (
-        <li className="relative text-nowrap indent-2" key={link.name}>
+        <li className="relative indent-2 text-2xl" key={link.name}>
           <Link className="group" href={link.url}>
             {link.name}
-            <div className="absolute bottom-[17%] h-[1.5px] w-[8px] bg-foreground transition-all duration-300 group-hover:w-full "></div>
+            <div className="absolute bottom-[10%] h-[3px] w-[8px] bg-foreground transition-all duration-300 group-hover:w-full "></div>
           </Link>
         </li>
       ))}
@@ -73,7 +90,7 @@ export function NavColumn({
   return (
     <div
       className={cn(
-        "flex w-full items-center justify-end gap-6 transition-opacity duration-500",
+        "flex w-full items-start gap-6 transition-opacity duration-500 lg:flex-wrap-reverse lg:justify-end 2xl:flex-wrap",
         className,
       )}
       {...props}

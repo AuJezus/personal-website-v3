@@ -82,8 +82,8 @@ function HeroSection() {
 
       {/* Content */}
       <div className="relative flex h-screen flex-col items-center justify-center gap-4">
-        <h1 className="text-9xl font-bold uppercase ">AuJezus</h1>
-        <p className="flex items-center gap-3 text-lg capitalize">
+        <h1 className="text-8xl font-bold uppercase ">AuJezus</h1>
+        <p className="flex items-center gap-3 text-sm capitalize">
           <span className="text-primary">{">"}</span>
           <span>Augustas Vaivada</span>
           <span>|</span>

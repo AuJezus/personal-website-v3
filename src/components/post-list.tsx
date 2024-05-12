@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import TagList from "./tag-list";
-import useFilterSearchParams from "@/lib/useFilterSeachParams";
+import useFilterSearchParams from "@/lib/hooks/use-filter-seach-params";
 
 function PostList() {
   const { tags, by, order, query } = useFilterSearchParams();

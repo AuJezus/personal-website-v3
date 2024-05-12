@@ -20,7 +20,7 @@ async function MyStatus() {
 
   return (
     <>
-      <p className="flex items-center gap-2 text-sm">
+      <p className="flex items-center gap-2 text-nowrap text-sm">
         <BiCircle
           className={cn("text-red-500", isOnline && "text-green-500")}
         />
@@ -32,7 +32,7 @@ async function MyStatus() {
           <a
             href={links.wakatime}
             target="_blank"
-            className="flex items-center gap-2 text-sm"
+            className="flex items-center gap-2 text-nowrap text-sm"
           >
             <BiTime
               className={cn(

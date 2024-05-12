@@ -20,7 +20,9 @@ async function LatestTrack({
     );
 
   return (
-    <div className={cn("flex items-center gap-2 text-sm", className)}>
+    <div
+      className={cn("flex items-center gap-2 text-nowrap text-sm", className)}
+    >
       <BiMusic
         className={cn("shrink-0 text-red-500", nowPlaying && "text-green-500")}
       />

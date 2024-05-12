@@ -1,6 +1,6 @@
 "use client";
 
-import useHeadingObserver from "@/lib/useHeadingObserver";
+import useHeadingObserver from "@/lib/hooks/use-heading-observer";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 

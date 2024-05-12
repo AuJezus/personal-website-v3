@@ -4,7 +4,7 @@ import {
   OrderByOptions,
   type OrderOption,
   OrderOptions,
-} from "./blog";
+} from "../blog";
 
 export default function useFilterSearchParams() {
   const params = useSearchParams();

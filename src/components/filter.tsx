@@ -21,7 +21,7 @@ import {
   type OrderOption,
   OrderOptions,
 } from "@/lib/blog";
-import useFilterSearchParams from "@/lib/useFilterSeachParams";
+import useFilterSearchParams from "@/lib/hooks/use-filter-seach-params";
 
 function FilterMenu({ className }: { className?: string }) {
   const router = useRouter();
