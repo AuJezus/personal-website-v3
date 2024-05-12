@@ -20,9 +20,9 @@ function HomePage() {
 
       <ProjectSection />
 
-      {/* <AboutSection />
+      <AboutSection />
 
-      <SkillSection />
+      {/* <SkillSection />
 
       <BlogSection />
 

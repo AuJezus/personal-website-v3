@@ -9,18 +9,21 @@ import TerminalHeading from "../terminal-heading";
 
 function AboutSection() {
   return (
-    <section id="about" className="mx-auto mb-44 max-w-[1200px]">
+    <section
+      id="about"
+      className="mx-auto mb-20 max-w-[1200px] px-4 sm:mb-44 xl:p-0"
+    >
       <TerminalHeading>about-me</TerminalHeading>
 
       <GlowEffect className="glow-primary">
-        <div className=" flex flex-col flex-wrap items-center justify-center gap-6 rounded-2xl border-4 bg-secondary/10 p-10 shadow-lg shadow-black/80 backdrop-blur-md glow:border-glow glow:bg-glow/[.15] md:flex-row md:items-start md:justify-between">
+        <div className=" flex flex-col flex-wrap items-center justify-center gap-6 rounded-2xl border-4 bg-secondary/10 p-3 shadow-lg shadow-black/80 backdrop-blur-md glow:border-glow glow:bg-glow/[.15] sm:p-10 md:flex-row md:items-start md:justify-between">
           <div className="order-2 flex-1 md:order-1">
             <h3 className="mb-3 text-4xl font-bold glow:text-glow/[.15]">
               Hey there!
             </h3>
-            <AboutParagraph className="mb-6" />
+            <AboutParagraph className="mb-6 text-sm sm:text-base" />
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
                 href={links.city}
                 target="_blank"
@@ -39,7 +42,7 @@ function AboutSection() {
 
           <Image
             src="/aujezus-play.webp"
-            alt="Banana Wrasse"
+            alt="Picture of me"
             width={100}
             height={100}
             className="glow order-1 h-40 w-40 max-w-sm rounded-full border-4 object-cover shadow-inner glow:border-glow/[.5] md:order-2"

@@ -7,7 +7,10 @@ import TerminalHeading from "../terminal-heading";
 
 function ProjectSection() {
   return (
-    <section id="projects" className="mx-auto mb-44 max-w-[1200px] px-4 xl:p-0">
+    <section
+      id="projects"
+      className="mx-auto mb-20 max-w-[1200px] px-4 sm:mb-44 xl:p-0"
+    >
       <TerminalHeading>projects</TerminalHeading>
       <h3 className="mb-16 text-center text-3xl font-semibold capitalize sm:text-5xl">
         Discover my work
