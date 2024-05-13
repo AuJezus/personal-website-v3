@@ -9,6 +9,9 @@ import { Toaster } from "sonner";
 
 import { Roboto_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/site";
+import { NavWrapper } from "@/components/nav/nav";
+import MyStatus from "@/components/nav/my-status";
+import LatestTrack from "@/components/nav/latest-track";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -42,6 +45,11 @@ export default function RootLayout({
       >
         <Provider>
           <TooltipProvider>
+            <NavWrapper>
+              <MyStatus />
+              <LatestTrack className="max-w-64" />
+            </NavWrapper>
+
             {children}
 
             <Footer />

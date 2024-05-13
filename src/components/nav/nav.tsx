@@ -16,11 +16,15 @@ import {
   DrawerTrigger,
 } from "../ui/drawer";
 import { BiMenu } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
-export function NavHome(props: { children: React.ReactNode }) {
+export function NavWrapper(props: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   const isScrollUp = useScrollUp();
   const [isHeroInView] = useAtom(isHeroInViewAtom);
   const [isHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
+  const isHome = pathname === "/";
 
   const isDekstop = useMediaQuery("(min-width: 1024px)");
 
@@ -28,16 +32,20 @@ export function NavHome(props: { children: React.ReactNode }) {
     return (
       <nav
         className={cn(
-          "fixed left-0 top-0 z-20 flex w-full items-baseline justify-center px-12 py-3 transition-transform",
+          "fixed left-0 top-0 z-20 flex w-full items-baseline justify-center px-12 py-3 transition-transform hover:translate-y-0",
           isScrollUp ? "translate-y-0" : "-translate-y-full",
-          "hover:translate-y-0",
+          !isHome && "sticky",
         )}
       >
-        <NavLogo className={!isHeroInView ? "opacity-0" : undefined} />
+        <NavLogo
+          className={isHome && !isHeroInView ? "opacity-0" : undefined}
+        />
 
-        <NavLinks isBorder={!isHeroInViewHalf} />
+        <NavLinks isBorder={!isHeroInViewHalf || !isHome} />
 
-        <NavColumn className={!isHeroInView ? "opacity-0" : undefined}>
+        <NavColumn
+          className={isHome && !isHeroInView ? "opacity-0" : undefined}
+        >
           {props.children}
         </NavColumn>
       </nav>
@@ -50,7 +58,7 @@ export function NavHome(props: { children: React.ReactNode }) {
           <div
             className={cn(
               "rounded-full border-2 border-transparent p-1 transition-all",
-              !isHeroInView && "border-border bg-background p-1",
+              (!isHeroInView || !isHome) && "border-border bg-background p-1",
             )}
           >
             <BiMenu className="text-4xl sm:text-5xl" />
@@ -58,7 +66,6 @@ export function NavHome(props: { children: React.ReactNode }) {
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader className="!text-center">
-            {/* <DrawerTitle className="text-4xl">AUJEZUS</DrawerTitle> */}
             <NavLogo />
             <DrawerDescription className="text-base">
               <p>Augustas Vaivada</p>
@@ -78,22 +85,6 @@ export function NavHome(props: { children: React.ReactNode }) {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </nav>
-  );
-}
-
-export function NavOther({ children }: { children: React.ReactNode }) {
-  const isScrollUp = useScrollUp();
-
-  return (
-    <nav
-      className={cn(
-        "sticky left-0 top-0 z-20 flex w-full items-center justify-center px-12 py-3 transition-transform",
-        isScrollUp ? "translate-y-0" : "-translate-y-full",
-        "hover:translate-y-0",
-      )}
-    >
-      {children}
     </nav>
   );
 }

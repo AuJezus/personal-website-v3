@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 
 import HeroSection from "@/components/home/hero-section";
-import ProjectSection from "../../components/home/project-section";
+import ProjectSection from "@/components/home/project-section";
 import AboutSection from "@/components/home/about-section";
 import SkillSection from "@/components/home/skill-section";
 import BlogSection from "@/components/home/blog-section";
