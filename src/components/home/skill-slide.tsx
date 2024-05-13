@@ -52,11 +52,8 @@ function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
     const touchEnd = e.changedTouches[0].screenX;
     const touchDistance = touchEnd - touchStart.current;
 
-    if (Math.abs(touchDistance) < 20) return;
-
-    if (touchDistance > 0) moveLeft();
-
-    if (touchDistance < 0) moveRight();
+    if (Math.abs(touchDistance) > 100)
+      touchDistance > 0 ? moveLeft() : moveRight();
   }
 
   return (
