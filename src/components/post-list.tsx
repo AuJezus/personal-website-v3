@@ -37,15 +37,15 @@ function PostList() {
         <Link
           key={post.title}
           href={`/blog/${post.slug}`}
-          className="group flex items-center divide-x-2 rounded-md border-2 p-2 transition-colors hover:border-primary/60"
+          className="group flex flex-col items-center gap-4 rounded-md border-2 p-2 transition-colors hover:border-primary/60 md:flex-row md:gap-0 md:divide-x-2"
         >
           <Image
-            className="h-[200px] w-[500px] object-cover"
+            className="h-[200px] w-full object-cover md:w-[500px]"
             src={post.banner}
             alt={`"${post.title}" banner image`}
           />
 
-          <div className="ml-4 flex w-full flex-col gap-1 pl-4 transition-colors group-hover:border-primary/60">
+          <div className="flex w-full flex-col gap-1 pl-4 transition-colors group-hover:border-primary/60 md:ml-4">
             <div className="mr-8 flex items-center justify-between text-muted-foreground">
               <p>{dayjs(post.date).format(siteConfig.dateFormat)}</p>
 
