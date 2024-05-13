@@ -26,6 +26,7 @@ import {
 import { CgWebsite } from "react-icons/cg";
 import SkillSlide from "./skill-slide";
 import TerminalHeading from "../terminal-heading";
+import Section from "./section";
 
 export interface Skill {
   icon: React.ReactNode;
@@ -37,16 +38,20 @@ export interface Skill {
 
 function SkillSection() {
   return (
-    <section id="skills" className="mb-44">
-      <TerminalHeading className="mx-auto max-w-[1200px]">
+    <Section id="skills" className="max-w-full p-0">
+      <TerminalHeading className="mx-auto max-w-[1200px] px-4 xl:p-0">
         skills
       </TerminalHeading>
 
       <div className="w-full border-y">
         <div className="mx-auto max-w-[1200px] py-8">
-          <h3 className="mb-12 text-center text-5xl font-semibold">
+          <h3 className="mb-8 text-center text-3xl font-semibold sm:mb-12 sm:text-5xl">
             My wizard wands
           </h3>
+
+          <p className="mb-2 text-center sm:hidden">
+            {"<"} Swipe for more {">"}
+          </p>
 
           <SkillSlide
             start={1}
@@ -148,7 +153,7 @@ function SkillSection() {
           />
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 

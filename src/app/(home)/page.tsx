@@ -22,9 +22,9 @@ function HomePage() {
 
       <AboutSection />
 
-      {/* <SkillSection />
+      <SkillSection />
 
-      <BlogSection />
+      {/* <BlogSection />
 
       <ContactSection /> */}
     </main>
