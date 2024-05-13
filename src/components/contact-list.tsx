@@ -1,4 +1,5 @@
 import { links } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import {
   BiLogoTwitter,
   BiLogoLinkedin,
@@ -19,9 +20,14 @@ function Contact(props: { children: React.ReactNode; href: string }) {
   );
 }
 
-function ConctactList() {
+function ConctactList({ className }: { className?: string }) {
   return (
-    <div className="flex flex-wrap justify-center gap-x-10 gap-y-3">
+    <div
+      className={cn(
+        "flex flex-wrap justify-center gap-x-10 gap-y-3",
+        className,
+      )}
+    >
       <Contact href={links.twitter}>
         <BiLogoTwitter />
       </Contact>
