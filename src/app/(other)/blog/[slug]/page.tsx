@@ -3,7 +3,6 @@ import { type Metadata } from "next";
 import { posts } from "@/content";
 import { notFound } from "next/navigation";
 
-import "@/styles/mdx.css";
 import TOC from "@/components/views/toc";
 import { PostView, ViewPageLayout } from "@/components/views/views";
 import { siteConfig } from "@/lib/site";
@@ -71,11 +70,9 @@ function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <ViewPageLayout>
-      <div className="w-full"></div>
-
       <PostView post={post} />
 
-      <div className="w-full">
+      <div className="hidden w-fit lg:block xl:w-1/3">
         <TOC title={post.title} toc={post.toc} />
       </div>
     </ViewPageLayout>

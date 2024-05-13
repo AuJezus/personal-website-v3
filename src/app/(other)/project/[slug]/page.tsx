@@ -68,11 +68,9 @@ function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <ViewPageLayout>
-      <div className="w-full"></div>
-
       <ProjectView project={project} />
 
-      <div className="w-full">
+      <div className="hidden w-fit lg:block xl:w-1/3">
         <TOC title={project.title} toc={project.toc} />
       </div>
     </ViewPageLayout>

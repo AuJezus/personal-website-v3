@@ -1,4 +1,5 @@
 import * as runtime from "react/jsx-runtime";
+import "@/styles/mdx.css";
 
 // This is code has eslint errors, but it is from docs,
 // so I'll wait for them to fix this.

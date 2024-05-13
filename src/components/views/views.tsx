@@ -9,7 +9,11 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { SortFunctions } from "@/lib/blog";
 
 export function ViewPageLayout({ children }: { children: React.ReactNode }) {
-  return <main className="mb-24 mt-12 flex justify-center">{children}</main>;
+  return (
+    <main className="mx-3 mb-24 mt-12 flex justify-center xl:mx-0">
+      {children}
+    </main>
+  );
 }
 
 export function ProjectView({ project }: { project: Project }) {
@@ -81,23 +85,23 @@ export function PostView({ post }: { post: Post }) {
         </Link>
 
         <Link
-          className="mr-6 flex w-full items-center justify-start gap-4"
+          className="mr-3 flex w-full items-center justify-start gap-4 sm:mr-6"
           href={`/blog/${previousPost?.slug}`}
         >
           {previousPost && (
             <>
-              <FaArrowLeft /> {previousPost?.title}
+              <FaArrowLeft className="flex-shrink-0" /> {previousPost?.title}
             </>
           )}
         </Link>
 
         <Link
-          className="flex w-full items-center justify-end gap-4 border-l-2 pl-6 !text-right"
+          className="flex w-full items-center justify-end gap-4 border-l-2 pl-3 !text-right sm:pl-6"
           href={`/blog/${nextPost?.slug}`}
         >
           {nextPost && (
             <>
-              {nextPost?.title} <FaArrowRight />
+              {nextPost?.title} <FaArrowRight className="flex-shrink-0" />
             </>
           )}
         </Link>
@@ -108,7 +112,7 @@ export function PostView({ post }: { post: Post }) {
 
 export function ProseWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="prose prose-base mx-auto max-w-2xl dark:prose-invert">
+    <div className="prose prose-sm mx-0 w-full max-w-2xl dark:prose-invert lg:prose-base lg:ml-auto">
       {children}
     </div>
   );

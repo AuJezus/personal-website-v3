@@ -13,7 +13,7 @@ export const revalidate = 30;
 function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <NavOther>
+      {/* <NavOther>
         <NavLogo />
 
         <NavLinks links={links} isBorder={true} />
@@ -22,7 +22,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
           <MyStatus />
           <LatestTrack className="max-w-64" />
         </NavColumn>
-      </NavOther>
+      </NavOther> */}
 
       {children}
     </>
