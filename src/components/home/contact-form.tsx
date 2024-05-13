@@ -73,19 +73,21 @@ function ContactForm() {
     <div className="relative">
       <div
         className={cn(
-          "pointer-events-none absolute flex h-full w-full flex-col items-center justify-center border-2 text-center opacity-0 transition-opacity",
+          "pointer-events-none absolute h-full w-full px-3 opacity-0 transition-opacity xl:p-0",
           isSuccess && "opacity-100",
         )}
       >
-        <p className="mb-2 text-green-500">200 OK</p>
-        <p className="mb-6 text-3xl font-semibold">
-          Message Sent Succesfully! :)
-        </p>
-        <p className="text-muted-foreground max-w-2xl">
-          Thank you for getting in touch! Your message means a lot. I&apos;ll
-          make sure to respond to you as soon as possible. Looking forward to
-          connecting with you soon!
-        </p>
+        <div className="flex h-full w-full flex-col items-center justify-center border-2 px-3 text-center">
+          <p className="mb-2 text-green-500">200 OK</p>
+          <p className="mb-6 text-2xl font-semibold sm:text-3xl">
+            Message Sent Succesfully! :)
+          </p>
+          <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+            Thank you for getting in touch! Your message means a lot. I&apos;ll
+            make sure to respond to you as soon as possible. Looking forward to
+            connecting with you soon!
+          </p>
+        </div>
       </div>
 
       <Form {...form}>
@@ -101,7 +103,7 @@ function ContactForm() {
           }}
           action={formAction}
           className={cn(
-            "mx-auto grid max-w-2xl grid-cols-2 gap-x-8 gap-y-4 transition-opacity",
+            "mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 px-3 transition-opacity md:grid-cols-2 md:p-0",
             isSuccess && "opacity-0",
           )}
         >
@@ -160,7 +162,7 @@ function ContactFormContent(props: {
         control={form.control}
         name="message"
         render={({ field }) => (
-          <FormItem className="col-span-2 mb-4">
+          <FormItem className="mb-4 md:col-span-2">
             <FormLabel>_message:</FormLabel>
             <FormControl>
               <Textarea placeholder="*" rows={8} {...field} />
@@ -176,7 +178,7 @@ function ContactFormContent(props: {
       <Button
         type="submit"
         disabled={pending}
-        className="col-span-2 w-fit min-w-24 justify-self-center"
+        className="w-fit min-w-24 justify-self-center md:col-span-2"
       >
         {pending ? "Sending..." : "Send"}
       </Button>

@@ -26,7 +26,7 @@ function HomePage() {
 
       <BlogSection />
 
-      {/* <ContactSection /> */}
+      <ContactSection />
     </main>
   );
 }
