@@ -24,9 +24,9 @@ function HomePage() {
 
       <SkillSection />
 
-      {/* <BlogSection />
+      <BlogSection />
 
-      <ContactSection /> */}
+      {/* <ContactSection /> */}
     </main>
   );
 }

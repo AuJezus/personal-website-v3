@@ -10,7 +10,7 @@ function ProjectSection() {
   return (
     <Section id="projects">
       <TerminalHeading>projects</TerminalHeading>
-      <h3 className=" mb-8 text-center text-3xl font-semibold capitalize sm:mb-16 sm:text-5xl">
+      <h3 className="mb-8 text-center text-3xl font-semibold capitalize sm:mb-16 sm:text-5xl">
         Discover my work
       </h3>
 
