@@ -52,7 +52,7 @@ function PostList() {
               <p className="text-sm">{post.metadata.readingTime} mins</p>
             </div>
 
-            <p className="line-clamp-2 text-xl font-semibold">{post.title}</p>
+            <p className="text-xl font-semibold">{post.title}</p>
 
             <p className="text-muted-foreground">{post.description}</p>
 

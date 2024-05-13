@@ -64,7 +64,7 @@ function FilterMenu({ className }: { className?: string }) {
 
   return (
     <div className={className}>
-      <Menubar className="text-x mb-4 h-fit w-fit">
+      <Menubar className="text-x mb-4 flex h-fit w-fit flex-wrap">
         <MenubarMenu>
           <MenubarTrigger>Filter by tag</MenubarTrigger>
           <MenubarContent>
