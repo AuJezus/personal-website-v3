@@ -7,7 +7,7 @@ function ContactSection() {
     <Section id="contact" className="p-0">
       <TerminalHeading>contact</TerminalHeading>
 
-      <h3 className="mb-8 bg-primary py-2 text-center text-3xl font-semibold text-primary-foreground sm:mb-12 sm:text-4xl">
+      <h3 className="mb-8 bg-primary px-3 py-2 text-center text-3xl font-semibold text-primary-foreground sm:mb-12 sm:text-4xl">
         CONTACT A CODE WIZARD
       </h3>
 
