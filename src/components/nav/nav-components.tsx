@@ -28,9 +28,10 @@ export const links = [
 export function NavLogo({
   className,
   ...props
-}: HTMLAttributes<HTMLParagraphElement>) {
+}: HTMLAttributes<HTMLAnchorElement>) {
   return (
-    <p
+    <Link
+      href="/"
       className={cn(
         "text h-full w-full text-nowrap text-5xl font-semibold transition-all duration-500 lg:text-2xl",
         className,
@@ -38,7 +39,7 @@ export function NavLogo({
       {...props}
     >
       AUJEZUS
-    </p>
+    </Link>
   );
 }
 
