@@ -13,6 +13,9 @@ import { NavWrapper } from "@/components/nav/nav";
 import MyStatus from "@/components/nav/my-status";
 import LatestTrack from "@/components/nav/latest-track";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
@@ -67,6 +70,9 @@ export default function RootLayout({
             },
           }}
         />
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
