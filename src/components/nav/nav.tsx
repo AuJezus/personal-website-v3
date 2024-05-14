@@ -73,7 +73,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
             </DrawerDescription>
           </DrawerHeader>
 
-          <div className="mx-auto mt-12">
+          <div className="mx-auto my-auto">
             <p className="mb-3 text-primary">{"// links"}</p>
             <NavLinks isDesktop={false} />
           </div>
