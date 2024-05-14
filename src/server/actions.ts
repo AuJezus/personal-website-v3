@@ -50,7 +50,6 @@ export async function sendMessageRecievedEmails(
       status: "success",
     };
   } catch (e) {
-    console.log(e);
     if (e instanceof ZodError) {
       return {
         status: "error",
