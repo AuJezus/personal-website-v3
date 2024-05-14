@@ -45,9 +45,11 @@ export function NavLogo({
 export function NavLinks({
   isBorder = false,
   isDesktop = true,
+  onClick,
 }: {
   isBorder?: boolean;
   isDesktop?: boolean;
+  onClick?: () => void;
 }) {
   if (isDesktop)
     return (
@@ -71,7 +73,11 @@ export function NavLinks({
   return (
     <ul className="flex flex-col gap-8">
       {links.map((link) => (
-        <li className="relative indent-2 text-2xl" key={link.name}>
+        <li
+          onClick={onClick}
+          className="relative indent-2 text-2xl"
+          key={link.name}
+        >
           <Link className="group" href={link.url}>
             {link.name}
             <div className="absolute bottom-[10%] h-[3px] w-[8px] bg-foreground transition-all duration-300 group-hover:w-full "></div>

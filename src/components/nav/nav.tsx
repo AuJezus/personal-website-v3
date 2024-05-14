@@ -17,6 +17,7 @@ import {
 } from "../ui/drawer";
 import { BiMenu } from "react-icons/bi";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export function NavWrapper(props: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -27,6 +28,8 @@ export function NavWrapper(props: { children: React.ReactNode }) {
   const isHome = pathname === "/";
 
   const isDekstop = useMediaQuery("(min-width: 1024px)");
+
+  const [open, setOpen] = useState(false);
 
   if (isDekstop)
     return (
@@ -53,7 +56,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
 
   return (
     <nav className="fixed top-0 z-20">
-      <Drawer direction="right">
+      <Drawer open={open} onOpenChange={setOpen} direction="right">
         <DrawerTrigger className="flex w-screen justify-end p-2 sm:p-4">
           <div
             className={cn(
@@ -75,7 +78,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
 
           <div className="mx-auto my-auto">
             <p className="mb-3 text-primary">{"// links"}</p>
-            <NavLinks isDesktop={false} />
+            <NavLinks onClick={() => setOpen(false)} isDesktop={false} />
           </div>
 
           <DrawerFooter>
