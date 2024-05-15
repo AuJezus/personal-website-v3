@@ -38,6 +38,7 @@ function BlogSection() {
                 src={post.banner}
                 alt={`"${post.title}" banner image`}
               />
+
               <div className="flex w-full flex-col gap-1 pl-2 transition-colors group-hover:border-primary/60 sm:border-l-2">
                 <p className="text-muted-foreground">
                   {dayjs(post.date).format(siteConfig.dateFormat)}

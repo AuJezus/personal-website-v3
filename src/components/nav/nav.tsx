@@ -61,7 +61,8 @@ export function NavWrapper(props: { children: React.ReactNode }) {
           <div
             className={cn(
               "rounded-full border-2 border-transparent p-1 transition-all",
-              (!isHeroInView || !isHome) && "border-border bg-background p-1",
+              (!isHeroInViewHalf || !isHome) &&
+                "border-border bg-background p-1",
             )}
           >
             <BiMenu className="text-4xl sm:text-5xl" />

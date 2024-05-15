@@ -40,6 +40,8 @@ const projects = {
       date: s.isodate(), // input Date-like string, output ISO Date string.
       tags: s.array(s.string()).optional(),
       description: s.string().max(99), // excerpt of markdown content
+      github: s.string().url(),
+      live: s.string().url().optional(),
       toc: s.toc({ ordered: true }),
       content: s.mdx(), // transform markdown to html
     })

@@ -8,7 +8,9 @@ import Tilt from "react-parallax-tilt";
 
 function Project({ left, project }: { left?: boolean; project: Project }) {
   return (
-    <div
+    <Link
+      href={`/project/${project.slug}`}
+      scroll={false}
       className={cn(
         "group relative z-0 flex max-w-xl flex-col-reverse items-center gap-8 bg-border/20 transition-all duration-500 hover:bg-primary/15 lg:max-w-4xl lg:flex-row lg:gap-12 lg:self-start",
         left && "lg:flex-row-reverse lg:self-end",
@@ -16,11 +18,7 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
     >
       <div className="absolute -z-10 h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent from-0% to-background to-70%"></div>
 
-      <Link
-        className="w-full lg:w-auto"
-        href={`/project/${project.slug}`}
-        scroll={false}
-      >
+      <div className="w-full lg:w-auto">
         <Tilt
           tiltMaxAngleX={10}
           tiltMaxAngleY={10}
@@ -33,7 +31,7 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
             alt="Image"
           />
         </Tilt>
-      </Link>
+      </div>
 
       <div>
         <p className="mb-4 text-lg font-semibold sm:text-2xl">
@@ -43,7 +41,7 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
           {project.description}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
