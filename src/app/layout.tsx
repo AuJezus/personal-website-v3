@@ -56,6 +56,7 @@ export default function RootLayout({
             {children}
 
             <Footer />
+
             {modal}
             <div id="modal-root" />
           </TooltipProvider>
