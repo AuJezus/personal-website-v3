@@ -7,6 +7,10 @@ import TerminalHeading from "../terminal-heading";
 import Section from "./section";
 
 function ProjectSection() {
+  const sortedProjects = projects.sort((a, b) =>
+    a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
+  );
+
   return (
     <Section id="projects">
       <TerminalHeading>projects</TerminalHeading>
@@ -15,7 +19,7 @@ function ProjectSection() {
       </h3>
 
       <div className="flex flex-col items-center gap-10 sm:gap-16">
-        {projects.map((project, i) => (
+        {sortedProjects.map((project, i) => (
           <React.Fragment key={project.slug}>
             <Project left={i % 2 !== 0} project={project} />
             <div className="h-px w-full max-w-96 bg-secondary"></div>
