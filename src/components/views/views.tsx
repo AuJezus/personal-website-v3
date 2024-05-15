@@ -7,6 +7,8 @@ import { MDXContent } from "../mdx-content";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { SortFunctions } from "@/lib/blog";
+import { BiLogoGithub } from "react-icons/bi";
+import { CgWebsite } from "react-icons/cg";
 
 export function ViewPageLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,9 +21,29 @@ export function ViewPageLayout({ children }: { children: React.ReactNode }) {
 export function ProjectView({ project }: { project: Project }) {
   return (
     <ProseWrapper>
-      <ViewDate date={project.date} />
-      <h1 className="mb-2">{project.title}</h1>
-      <p>{project.description}</p>
+      <div className="!mb-2 flex items-center gap-8">
+        <ViewDate date={project.date} />
+
+        <a
+          href={project.github}
+          className="flex items-center gap-2 !text-primary"
+        >
+          <BiLogoGithub /> Github
+        </a>
+
+        {project.live && (
+          <a
+            href={project.live}
+            className="flex items-center gap-2 !text-primary"
+          >
+            <CgWebsite /> Live
+          </a>
+        )}
+      </div>
+
+      <h1 className="!mb-4 !mt-0">{project.title}</h1>
+
+      <p className="!mt-0">{project.description}</p>
 
       {project.tags?.length && (
         <TagList className="mb-2" title={project.title} tags={project.tags} />
@@ -55,12 +77,12 @@ export function PostView({ post }: { post: Post }) {
         Back to all posts
       </Link>
 
-      <div className="flex items-center gap-8">
+      <div className="mb-2 flex items-center gap-8">
         <ViewDate date={post.date} />
-        <p className="mb-2 mt-0">{post.metadata.readingTime} mins</p>
+        <p className="!my-0">{post.metadata.readingTime} mins</p>
       </div>
 
-      <h1 className="mb-2">{post.title}</h1>
+      <h1 className="!mb-4 !mt-0">{post.title}</h1>
 
       <p>{post.description}</p>
 
@@ -119,7 +141,5 @@ export function ProseWrapper({ children }: { children: React.ReactNode }) {
 }
 
 export function ViewDate({ date }: { date: string }) {
-  return (
-    <p className="mb-2 mt-0">{dayjs(date).format(siteConfig.dateFormat)}</p>
-  );
+  return <p className="!my-0">{dayjs(date).format(siteConfig.dateFormat)}</p>;
 }
