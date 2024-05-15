@@ -21,7 +21,7 @@ export function ViewPageLayout({ children }: { children: React.ReactNode }) {
 export function ProjectView({ project }: { project: Project }) {
   return (
     <ProseWrapper>
-      <div className="!mb-2 flex items-center gap-8">
+      <div className="!mb-2 flex flex-wrap items-center gap-x-8">
         <ViewDate date={project.date} />
 
         <a
