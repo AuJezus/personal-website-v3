@@ -69,7 +69,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader className="!text-center">
-            <NavLogo />
+            <NavLogo onClick={() => setOpen(false)} />
             <DrawerDescription className="text-base">
               <p>Augustas Vaivada</p>
               <p>Full-stack developer</p>

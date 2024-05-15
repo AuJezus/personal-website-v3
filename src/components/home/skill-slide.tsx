@@ -133,7 +133,7 @@ function SkillCard({
             {"// description"}
           </p>
           <p className="mb-6 text-center text-sm">{skill.description}</p>
-          <div className="flex flex-wrap items-center justify-around gap-y-2 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-around gap-2 text-sm text-muted-foreground">
             {skill.stats.map((stat) => (
               <span
                 key={stat}

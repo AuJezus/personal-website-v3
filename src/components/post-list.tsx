@@ -40,7 +40,7 @@ function PostList() {
           className="group flex flex-col items-center gap-4 rounded-md border-2 p-2 transition-colors hover:border-primary/60 md:flex-row md:gap-0 md:divide-x-2"
         >
           <Image
-            className="h-[200px] w-full object-cover md:w-[500px]"
+            className="h-[200px] w-full min-w-0 object-cover md:max-w-[350px]"
             src={post.banner}
             alt={`"${post.title}" banner image`}
           />

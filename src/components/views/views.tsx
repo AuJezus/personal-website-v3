@@ -72,7 +72,7 @@ export function PostView({ post }: { post: Post }) {
 
       <MDXContent code={post.content} />
 
-      <p className="mb-8 mt-16 text-center text-sm">
+      <p className="!mt-16 mb-8 text-center text-sm">
         Thank you for reading! Wanna see more?
       </p>
 
