@@ -16,64 +16,6 @@ live: https://aujezus.com
 
 ## Goals
 
-With this project my goals were to **learn working with typescript** and **strengthen my next.js skills**. The v2 version was outdated and kinda crappy for my current standards, also it used plain react, so I had to **make an upgrade** to next.
-
-## Features
-
-I tried to make this website not bloated with unecesarry features and be nice, straight to the point.
-
-### Hero design
-
-I wanted to make a catchy hero design, so people visiting my site would appreaciate for a moment, before going elsewhere.
-
-It's combining a couple of effects:
-
-1. Moving picture - in the background there is no video, is only a large picture zoomed in and animated with css.
-2. TV line effect - there are subtle lines moving as an old tv, made with css gradient.
-3. Glitching effect - I was going for developer vibes, so I thought a glitch in the system would be a nice idea. Making this noise/glitch effect through css in not very possible, so I had to combine svg element with some special parameters and ts for glitch in random intervals and variable strength.
-
-### Parallel + Intecepting route modal
-
-For project section, my goals was to make a modal view, so people could quickly glance at the project without needing to go to another page. So one solution was really new feature of next: Parallel and Intercepting routes.
-
-I won't go into the details of how it works, but in short parallel routes , allow to combine couple of pages to one route or in this case a modal. Intercepting routes allows to take over the soft navigation to route and render a different one, but if it's hard navigation then the route is not intercepted and showed like it normally would.
-
-Combining these two features allows to keep the context in the background, while intercepting the soft navigation to project page and showing a modal view instead. Doing modal this way has also a couple of benefits, like being able to close the modal by navigating back, sharable urls.
-
-### Fully featured forms with zod and reactHookForm in next
-
-I wanted to figure out a way to handle forms in next easier, using server actions, client-side validation and server-side validation. By using reactHookForm I had all of client side features, but it's a bit hacky to make it work with server actions, saving the previous state, handling errors, but after searching I figured it out and it works really well. You can check it out in the contact section.
-
-### Sending emails with React Email
-
-For some reasons, I really wanted to send my own emails and design them to fit my website. I plan to make a newsletter in the future, but for now it's used to send messages from contact form.
-
-I thought it would be easy, like usng regular html and css, but soon found out that most features don't work and it you need to use very old html methods, which were unfamilliar to me.
-
-But after some time like always I figured out the design and was able so send it using nodemailer. If you write me a message, it send me an email with the information you put in and it also send the writer a message saying thank you, as a confirmation that I recieved their message.
-
-### My stats in the nav bar
-
-I wanted to show my latest song and my working status (if i'm online and how much time I spent coding today). I was inspired from these websites: [dimden](https://dimden.dev/) and [wiscaksono](https://wiscaksono.com/).
-
-For working status, it was easy to make using wakatime api and for latest track I used lastFM api.
-
-### Blog
-
-In the version 2, I implemented a WYSIWYG editor and saved the data to db. It worked okay, but if I want an extra feature it's very hard to implement and maintain, so I opted to use markdown. More specifically mdx, because it can have react code inside it.
-
-To manage all of my content in a typesafe manner I used **velite**. I could have want for Content Layer, but it's not maintained and I did not need the extra features.
-
-Velite was easy to setup and typesafety of your mdx files are a very very nice feature.
-
-## Conclusion
-
-I think I made a nice website, I really like it and plan to show it to recruiters when searching for a job. Writing a blog is very enjoyable now, because I can just do it inside my IDE, commit to github and it's live on my website.
-
-Thank you for reading!
-
-## Goals
-
 With this project, my goals were to **learn TypeScript** and **strengthen my Next.js skills**. The v2 version was outdated and kinda crappy by my current standards. Also, it used plain React, so I had to **upgrade it to Next.js**.
 
 ## Features
@@ -96,9 +38,13 @@ In brief, Parallel routes enable combining multiple pages into one route or, in 
 
 Additionally, this modal implementation offers benefits like being able to close it by navigating back and sharing URLs.
 
+![Modal picture](../media/personal-website-v3/modal.png)
+
 ### Fully Featured Forms with Zod and React Hook Form in Next.js
 
 I wanted to streamline form handling in Next.js, incorporating server actions, client-side validation, and server-side validation. Using React Hook Form facilitated client-side features, though integrating it with server actions, handling errors, and preserving previous states required some workaround. After some research, I managed to make it work seamlessly. You can try it out in the contact section.
+
+![Contact form](../media/personal-website-v3/contact-form.png)
 
 ### Sending Emails with React Email
 
@@ -112,11 +58,17 @@ Now, when someone sends me a message, I receive an email containing their inform
 
 Inspired by websites like [dimden](https://dimden.dev/) and [wiscaksono](https://wiscaksono.com/), I decided to display my latest song and my current working status (indicating whether I'm online and how much time I've spent coding today) in the navigation bar. Implementing the working status was straightforward using the Wakatime API, while for the latest track, I utilized the LastFM API.
 
+![Stats in the navbar](../media/personal-website-v3/stats.png)
+
 ### Blog
 
 In version 2, I implemented a WYSIWYG editor and stored data in a database. While it worked adequately, extending or adding new features was challenging to maintain.
 
 Therefore, I switched to Markdown, specifically MDX, which supports embedding React code. To manage my content in a type-safe manner, I opted for **Velite**. Setting up Velite was easy, and its type safety for MDX files proved invaluable.
+
+Also implemented this cool table of content!
+
+![Blog post](../media/personal-website-v3/blog.png)
 
 ## Conclusion
 
