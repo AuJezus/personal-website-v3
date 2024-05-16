@@ -1,6 +1,6 @@
 {
   "pasteImage.path": "${projectRoot}/content/media/${currentFileNameWithoutExt}",
-  "pasteImage.basePath": "../",
+  "pasteImage.basePath": "${currentFileDir}",
   "pasteImage.forceUnixStyleSeparator": true,
   "pasteImage.filePathConfirmInputBoxMode": "onlyName"
 }
