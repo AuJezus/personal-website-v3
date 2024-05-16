@@ -27,68 +27,64 @@ export function NavWrapper(props: { children: React.ReactNode }) {
   const [isHeroInViewHalf] = useAtom(isHeroInViewHalfAtom);
   const isHome = pathname === "/";
 
-  const isDekstop = useMediaQuery("(min-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 1024px)");
 
   const [open, setOpen] = useState(false);
 
-  if (isDekstop)
+  if (isMobile)
     return (
-      <nav
-        className={cn(
-          "fixed left-0 top-0 z-20 flex w-full items-baseline justify-center px-12 py-3 transition-transform hover:translate-y-0",
-          isScrollUp ? "translate-y-0" : "-translate-y-full",
-          !isHome && "sticky",
-        )}
-      >
-        <NavLogo
-          className={isHome && !isHeroInView ? "opacity-0" : undefined}
-        />
+      <nav className="fixed top-0 z-20">
+        <Drawer open={open} onOpenChange={setOpen} direction="right">
+          <DrawerTrigger className="flex w-screen justify-end p-2 sm:p-4">
+            <div
+              className={cn(
+                "rounded-full border-2 border-transparent p-1 transition-all",
+                (!isHeroInViewHalf || !isHome) &&
+                  "border-border bg-background p-1",
+              )}
+            >
+              <BiMenu className="text-4xl sm:text-5xl" />
+            </div>
+          </DrawerTrigger>
+          <DrawerContent>
+            <DrawerHeader className="!text-center">
+              <NavLogo onClick={() => setOpen(false)} />
+              <DrawerDescription className="text-base">
+                <p>Augustas Vaivada</p>
+                <p>Full-stack developer</p>
+              </DrawerDescription>
+            </DrawerHeader>
 
-        <NavLinks isBorder={!isHeroInViewHalf || !isHome} />
+            <div className="mx-auto my-auto">
+              <p className="mb-3 text-primary">{"// links"}</p>
+              <NavLinks onClick={() => setOpen(false)} isDesktop={false} />
+            </div>
 
-        <NavColumn
-          className={isHome && !isHeroInView ? "opacity-0" : undefined}
-        >
-          {props.children}
-        </NavColumn>
+            <DrawerFooter>
+              <div className="flex flex-wrap justify-center gap-4">
+                {props.children}
+              </div>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       </nav>
     );
 
   return (
-    <nav className="fixed top-0 z-20">
-      <Drawer open={open} onOpenChange={setOpen} direction="right">
-        <DrawerTrigger className="flex w-screen justify-end p-2 sm:p-4">
-          <div
-            className={cn(
-              "rounded-full border-2 border-transparent p-1 transition-all",
-              (!isHeroInViewHalf || !isHome) &&
-                "border-border bg-background p-1",
-            )}
-          >
-            <BiMenu className="text-4xl sm:text-5xl" />
-          </div>
-        </DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader className="!text-center">
-            <NavLogo onClick={() => setOpen(false)} />
-            <DrawerDescription className="text-base">
-              <p>Augustas Vaivada</p>
-              <p>Full-stack developer</p>
-            </DrawerDescription>
-          </DrawerHeader>
+    <nav
+      className={cn(
+        "fixed left-0 top-0 z-20 flex w-full items-baseline justify-center px-12 py-3 transition-transform hover:translate-y-0",
+        isScrollUp ? "translate-y-0" : "-translate-y-full",
+        !isHome && "sticky",
+      )}
+    >
+      <NavLogo className={isHome && !isHeroInView ? "opacity-0" : undefined} />
 
-          <div className="mx-auto my-auto">
-            <p className="mb-3 text-primary">{"// links"}</p>
-            <NavLinks onClick={() => setOpen(false)} isDesktop={false} />
-          </div>
+      <NavLinks isBorder={!isHeroInViewHalf || !isHome} />
 
-          <DrawerFooter>
-            <div className="flex flex-wrap justify-center gap-4">
-              {props.children}
-            </div>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      <NavColumn className={isHome && !isHeroInView ? "opacity-0" : undefined}>
+        {props.children}
+      </NavColumn>
     </nav>
   );
 }
