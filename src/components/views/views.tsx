@@ -26,6 +26,7 @@ export function ProjectView({ project }: { project: Project }) {
 
         <a
           href={project.github}
+          target="_blank"
           className="flex items-center gap-2 !text-primary"
         >
           <BiLogoGithub /> Github
@@ -34,6 +35,7 @@ export function ProjectView({ project }: { project: Project }) {
         {project.live && (
           <a
             href={project.live}
+            target="_blank"
             className="flex items-center gap-2 !text-primary"
           >
             <CgWebsite /> Live
