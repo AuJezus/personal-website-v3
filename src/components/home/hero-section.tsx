@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import ConctactList from "../contact-list";
 import { atom, useAtom } from "jotai";
 import { links } from "@/lib/site";
-import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 
 export const isHeroInViewAtom = atom(true);
 export const isHeroInViewHalfAtom = atom(true);
@@ -94,16 +93,9 @@ function HeroSection() {
         <div className="absolute bottom-8 z-10 flex flex-col items-center gap-8">
           <ConctactList />
 
-          <Tooltip
-            // href={links.resumeDownload}
-            // target="_blank"
-            delayDuration={0}
-          >
-            <TooltipTrigger className="font text-sm hover:underline">
-              Download Resume
-            </TooltipTrigger>
-            <TooltipContent>Working on it :)</TooltipContent>
-          </Tooltip>
+          <a href={links.resumeDownload} target="_blank" className="text-sm">
+            Download Resume
+          </a>
         </div>
       </div>
     </div>

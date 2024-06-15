@@ -14,7 +14,7 @@ export const links = {
   githubRepositories: "https://github.com/AuJezus?tab=repositories",
   email: `mailto:${env.NEXT_PUBLIC_GMAIL_USER}`,
   resumeDownload:
-    '"https://drive.google.com/drive/folders/19NwJcutDY-WrdWaASwjXAvVBW4FHzWHU?usp=sharing',
+    "https://drive.google.com/drive/folders/19NwJcutDY-WrdWaASwjXAvVBW4FHzWHU?usp=sharing",
   wakatime: "https://wakatime.com/@AuJezus",
   // Github link to this website repository
   siteGithubRepo: "https://github.com/AuJezus/personal-website-v3",
