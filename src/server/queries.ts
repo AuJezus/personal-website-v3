@@ -11,9 +11,9 @@ export async function getLatestTrack() {
   });
 
   try {
-    const trackResponse = (await fetch(`${apiUrl}?${params.toString()}`).then(
-      (response) => response.json(),
-    )) as {
+    const trackResponse = (await fetch(`${apiUrl}?${params.toString()}`, {
+      next: { revalidate: 600 },
+    }).then((response) => response.json())) as {
       recenttracks: {
         track: {
           artist: {
@@ -52,12 +52,12 @@ export async function getMyStatus() {
 
   try {
     const [heartbeatResponse, durationResponse] = (await Promise.all([
-      fetch(`${heartbeatUrl}?${params.toString()}`).then((response) =>
-        response.json(),
-      ),
-      fetch(`${durationUrl}?${params.toString()}`).then((response) =>
-        response.json(),
-      ),
+      fetch(`${heartbeatUrl}?${params.toString()}`, {
+        next: { revalidate: 600 },
+      }).then((response) => response.json()),
+      fetch(`${durationUrl}?${params.toString()}`, {
+        next: { revalidate: 600 },
+      }).then((response) => response.json()),
     ])) as [
       {
         data: { time: number }[];
