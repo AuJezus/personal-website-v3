@@ -8,6 +8,8 @@ import { links } from "@/lib/site";
 import TerminalHeading from "../terminal-heading";
 import Section from "./section";
 
+import profileImage from "../../../public/profile.jpg";
+
 function AboutSection() {
   return (
     <Section id="about">
@@ -39,10 +41,8 @@ function AboutSection() {
           </div>
 
           <Image
-            src="/aujezus-play.webp"
+            src={profileImage}
             alt="Picture of me"
-            width={100}
-            height={100}
             className="glow order-1 h-40 w-40 max-w-sm rounded-full border-4 object-cover shadow-inner glow:border-glow/[.5] md:order-2"
           />
         </div>
