@@ -8,7 +8,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "AuJezus blog",
   description:
-    "Here, I'll be sharing all sorts of goodies about web development, from handy tips to passionate rants. Let's dive into the exciting world of coding together!",
+    "Welcome to my blog, here I'll be sharing my thoughts, experiences and projects along the way.",
 };
 
 function BlogPage() {
@@ -21,10 +21,8 @@ function BlogPage() {
       <h2 className="mb-4 text-3xl font-semibold">All things web dev</h2>
 
       <p className="mb-4 border-b-2 pb-4 text-sm text-muted-foreground sm:text-base">
-        Hello people on the internet! Welcome to my corner of the web. Here,
-        I&apos;ll be sharing all sorts of goodies about web development, from
-        handy tips to passionate rants. Let&apos;s dive into the exciting world
-        of coding together!
+        Welcome to my blog, here I&apos;ll be sharing my thoughts, experiences
+        and projects along the way.
       </p>
 
       <Suspense>
