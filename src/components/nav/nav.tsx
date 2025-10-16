@@ -33,7 +33,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
 
   if (isMobile)
     return (
-      <nav className="fixed top-0 z-20">
+      <nav className="fixed top-0 z-20 block lg:hidden">
         <Drawer open={open} onOpenChange={setOpen} direction="right">
           <DrawerTrigger className="flex w-screen justify-end p-2 sm:p-4">
             <div
@@ -73,7 +73,7 @@ export function NavWrapper(props: { children: React.ReactNode }) {
   return (
     <nav
       className={cn(
-        "fixed left-0 top-0 z-20 flex w-full items-baseline justify-center px-12 py-3 transition-transform hover:translate-y-0",
+        "fixed left-0 top-0 z-20 hidden w-full items-baseline justify-center px-12 py-3 transition-transform hover:translate-y-0 lg:flex",
         isScrollUp ? "translate-y-0" : "-translate-y-full",
         !isHome && "sticky",
       )}

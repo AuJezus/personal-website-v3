@@ -10,35 +10,36 @@ export async function getLatestTrack() {
     format: "json",
   });
 
-  try {
-    const trackResponse = (await fetch(`${apiUrl}?${params.toString()}`, {
-      next: { revalidate: 600 },
-    }).then((response) => response.json())) as {
-      recenttracks: {
-        track: {
-          artist: {
-            "#text": string;
-          };
-          name: string;
-          "@attr": {
-            nowplaying?: boolean;
-          };
-          url: string;
-        }[];
-      };
-    };
+  const trackResponse = await fetch(`${apiUrl}?${params.toString()}`, {
+    next: { revalidate: 600 },
+  });
 
-    const track = trackResponse.recenttracks.track[0];
-    return {
-      artist: track?.artist["#text"],
-      name: track?.name,
-      trackUrl: track?.url,
-      nowPlaying: track?.["@attr"]?.nowplaying ?? false,
-    };
-  } catch (error) {
-    console.error(error);
+  if (!trackResponse.ok) {
     return { message: "Could not fetch track" };
   }
+
+  const trackData = (await trackResponse.json()) as {
+    recenttracks: {
+      track: {
+        artist: {
+          "#text": string;
+        };
+        name: string;
+        "@attr": {
+          nowplaying?: boolean;
+        };
+        url: string;
+      }[];
+    };
+  };
+
+  const track = trackData.recenttracks.track[0];
+  return {
+    artist: track?.artist["#text"],
+    name: track?.name,
+    trackUrl: track?.url,
+    nowPlaying: track?.["@attr"]?.nowplaying ?? false,
+  };
 }
 
 export async function getMyStatus() {
@@ -50,36 +51,38 @@ export async function getMyStatus() {
     date: "today",
   });
 
-  try {
-    const [heartbeatResponse, durationResponse] = (await Promise.all([
-      fetch(`${heartbeatUrl}?${params.toString()}`, {
-        next: { revalidate: 600 },
-      }).then((response) => response.json()),
-      fetch(`${durationUrl}?${params.toString()}`, {
-        next: { revalidate: 600 },
-      }).then((response) => response.json()),
-    ])) as [
-      {
-        data: { time: number }[];
-      },
-      {
-        data: { duration: number }[];
-      },
-    ];
+  const [heartbeatResponse, durationResponse] = await Promise.all([
+    fetch(`${heartbeatUrl}?${params.toString()}`, {
+      next: { revalidate: 600 },
+    }),
+    fetch(`${durationUrl}?${params.toString()}`, { next: { revalidate: 600 } }),
+  ]);
 
-    const lastHeartbeatTime = heartbeatResponse.data.at(-1)?.time ?? 0;
-    const timeout = 15 * 60;
-    const totalTodayDuration = durationResponse.data.reduce(
-      (acc, duration) => acc + duration.duration,
-      0,
-    );
-
-    return {
-      isOnline: new Date().getTime() / 1000 - lastHeartbeatTime < timeout,
-      duration: totalTodayDuration,
-    };
-  } catch (error) {
-    console.error(error);
+  if (!heartbeatResponse.ok || !durationResponse.ok) {
     return { message: "Could not fetch status" };
   }
+
+  const [heartbeatData, durationData] = (await Promise.all([
+    heartbeatResponse.json(),
+    durationResponse.json(),
+  ])) as [
+    {
+      data: { time: number }[];
+    },
+    {
+      data: { duration: number }[];
+    },
+  ];
+
+  const lastHeartbeatTime = heartbeatData.data.at(-1)?.time ?? 0;
+  const timeout = 15 * 60;
+  const totalTodayDuration = durationData.data.reduce(
+    (acc, duration) => acc + duration.duration,
+    0,
+  );
+
+  return {
+    isOnline: new Date().getTime() / 1000 - lastHeartbeatTime < timeout,
+    duration: totalTodayDuration,
+  };
 }
