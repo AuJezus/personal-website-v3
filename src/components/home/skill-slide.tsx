@@ -66,7 +66,7 @@ function SkillSlide({ skills, start = 0 }: { skills: Skill[]; start: number }) {
         onClick={moveRight}
         className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 cursor-pointer text-4xl sm:block lg:right-[20%] xl:-right-7"
       />
-      <div className="flex justify-center overflow-x-hidden">
+      <div className="flex justify-center overflow-x-clip">
         <div
           className={`${isChanging ? "" : "transition-transform duration-300"} flex w-[90%] sm:w-2/3 md:w-1/2 lg:w-1/3`}
           onTransitionEnd={checkIfInBounds}
