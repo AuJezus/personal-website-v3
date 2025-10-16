@@ -7,9 +7,9 @@ import TerminalHeading from "../terminal-heading";
 import Section from "./section";
 
 function ProjectSection() {
-  const sortedProjects = projects.sort((a, b) =>
-    a.date > b.date ? -1 : a.date < b.date ? 1 : 0,
-  );
+  const sortedProjects = projects
+    .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
+    .slice(0, 5);
 
   return (
     <Section id="projects">
