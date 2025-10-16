@@ -11,58 +11,51 @@ function AboutParagraph({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const [showMore, setShowMore] = useAtom(showAtom);
 
   return (
-    <div
-      className={cn(
-        "glow:text-glow/5 flex flex-col gap-4 opacity-80",
-        className,
-      )}
-    >
+    <div className={cn("flex flex-col gap-4 opacity-80 ", className)}>
       {!showMore && (
         <>
           <p>
-            I&apos;m Augustas, a full-stack developer specializing in creating
-            seamless websites with captivating designs. My journey into coding
-            began with web flash games, sparking a passion for development.
-            Inspired by innovation and fueled by self-guided learning, I bring
-            creativity and expertise to every project.
+            I&apos;m Augustas. I build full stack websites that look good and
+            work smoothly. I love clean, animated UIs, and I&apos;m also
+            comfortable with complex backend logic to keep things fast and
+            modern.
           </p>
           <p>
-            Driven by a dedication to excellence, I create websites that exceed
-            expectations. Let&apos;s collaborate to bring your vision to life.
+            I care about doing great and meaningful work. My dream is to build
+            something used by millions. If you need a passionate developer on
+            your team, let&apos;s chat and bring you idea to life.
           </p>
         </>
       )}
       {showMore && (
         <>
           <p>
-            I&apos;m Augustas, a passionate developer with a knack for crafting
-            captivating online experiences. Specializing in full-stack websites,
-            I merge seamless backend functionality with captivating UI designs
-            to deliver optimized solutions that captivate audiences.
+            I&apos;m Augustas. I build full stack websites that look good and
+            work smoothly. I love clean, animated UIs, and I&apos;m also
+            comfortable with complex backend logic to keep things fast and
+            modern.
           </p>
           <p>
-            My journey into coding began with the enchanting world of web flash
-            games, that my grandmother put on. Entranced by the boundless
-            possibilities of this virtual realm, I embarked on a quest to become
-            a developer. Countless hours of self-guided learning fueled my
-            ambition, propelling me toward my goal.
+            My coding journey began playing web flash games, that my grandmother
+            showed me. That opened my eyes to computers and I realized that with
+            code, I can build whole worlds. So I started learning, to build
+            games, apps and finally websites on my free time.
           </p>
           <p>
-            While coding occupies much of my time, I also find joy in working on
-            older cars, indulging in anime, and savoring a good cup of coffee.
-            These interests not only provide balance but also inspire creativity
-            in my work.
+            While coding occupies much of my time, I also enjoy cars, I like
+            fixing and modding them. My favorite is the Audi S3 8L 1.8T. I also
+            like to work out and drink good coffee to keep my mind sharp.
           </p>
           <p>
-            Driven by a passion for innovation and a dedication to excellence, I
-            strive to create websites that not only meet client needs but exceed
-            expectations. Let&apos;s collaborate to bring your vision to life.
+            I care about doing great and meaningful work. My dream is to build
+            something used by millions. If you need a passionate developer on
+            your team, let&apos;s chat and bring you idea to life.
           </p>
         </>
       )}
 
       <button
-        className="text-muted-foreground flex w-fit items-center gap-1 text-sm"
+        className="flex w-fit items-center gap-1 text-sm text-muted-foreground"
         onClick={() => setShowMore((show) => !show)}
       >
         {!showMore && (

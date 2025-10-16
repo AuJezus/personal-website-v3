@@ -15,12 +15,10 @@ function AboutSection() {
     <Section id="about">
       <TerminalHeading>about-me</TerminalHeading>
 
-      <GlowEffect className="glow-primary">
+      <GlowEffect className="glow-primary-dark">
         <div className=" flex flex-col flex-wrap items-center justify-center gap-6 rounded-2xl border-4 bg-secondary/10 p-3 shadow-lg shadow-black/80 backdrop-blur-md glow:border-glow glow:bg-glow/[.15] sm:p-10 md:flex-row md:items-start md:justify-between">
           <div className="order-2 flex-1 md:order-1">
-            <h3 className="mb-3 text-4xl font-bold glow:text-glow/[.15]">
-              Hey there!
-            </h3>
+            <h3 className="mb-3 text-4xl font-bold">Hey there!</h3>
             <AboutParagraph className="mb-6 text-sm sm:text-base" />
 
             <div className="flex flex-wrap gap-4">
