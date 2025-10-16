@@ -41,6 +41,8 @@ function AboutSection() {
           <Image
             src={profileImage}
             alt="Picture of me"
+            width={320}
+            height={564}
             className="glow order-1 h-40 w-40 max-w-sm rounded-full border-4 object-cover shadow-inner glow:border-glow/[.5] md:order-2"
           />
         </div>

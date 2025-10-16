@@ -28,7 +28,9 @@ function Project({ left, project }: { left?: boolean; project: Project }) {
           <Image
             className="w-full rounded-lg border-2 object-cover p-2 transition-colors hover:border-primary lg:max-h-[300px] lg:w-screen lg:max-w-[500px]"
             src={project.image}
-            alt="Image"
+            width={750}
+            height={375}
+            alt={`${project.title} banner image`}
           />
         </Tilt>
       </div>

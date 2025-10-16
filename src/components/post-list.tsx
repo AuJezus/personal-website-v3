@@ -41,6 +41,8 @@ function PostList() {
         >
           <Image
             className="h-[200px] w-full min-w-0 object-cover md:max-w-[350px]"
+            width={700}
+            height={350}
             src={post.banner}
             alt={`"${post.title}" banner image`}
           />

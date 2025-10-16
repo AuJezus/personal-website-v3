@@ -36,6 +36,8 @@ function BlogSection() {
               <Image
                 className="h-28 w-52 shrink-0 object-cover"
                 src={post.banner}
+                width={420}
+                height={228}
                 alt={`"${post.title}" banner image`}
               />
 
